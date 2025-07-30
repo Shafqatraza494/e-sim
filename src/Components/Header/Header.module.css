@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+  align-items: center;
+  gap: 10px;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}
+.logo p {
+  color: #eb662b;
+  font-size: 24px;
+  font-weight: 700;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+}
+.buttons button {
+  cursor: pointer;
+}
+.registerBtn {
+  height: 44px;
+  width: 120px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 200px;
+}
+.loginBtn {
+  height: 44px;
+  width: 83px;
+  background-color: #eb662b;
+  border: none;
+  border-radius: 200px;
+  color: white;
+}
+.langBtn {
+  border: 1px solid black;
+  height: 44px;
+  width: 63px;
+  background-color: white;
+  border-radius: 200px;
+}
+.cartBtn {
+  border-radius: 50%;
+  width: 48px;
+  height: 44px;
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menuList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
