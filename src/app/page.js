@@ -3,11 +3,21 @@ import React from "react";
 import "./globals.css";
 import Footer from "@/Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Hero from "@/Components/GlobalUi/Hero/Hero";
 
 function page() {
   return (
     <>
-      <h1>sjjsj</h1>
+      <Header />
+      <Hero
+        para={
+          " Our team is here to assist you promptly through any of these channels."
+        }
+        heading={"Manage your sim here."}
+        btn1={"Buy eSIM"}
+        btn2={"My eSIM"}
+      />
+      <Footer />
     </>
   );
 }

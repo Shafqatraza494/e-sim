@@ -5,3 +5,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.lato-text {
+  font-family: var(--font-lato), sans-serif;
+}
+.bayon-text {
+  font-family: var(--font-bayon), sans-serif;
+}

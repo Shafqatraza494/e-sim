@@ -2,6 +2,20 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
+import { Lato } from "next/font/google";
+import { Bayon } from "next/font/google";
+
+const bayon = Bayon({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bayon",
+});
+
+const lato = Lato({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",

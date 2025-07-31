@@ -17,14 +17,14 @@ function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <a href="#">
-          <Image src="/logo.png" alt="Logo" width={30} height={30} />
+          <Image src="/logo.png" alt="Logo" width={29} height={29} />
         </a>
-        <p>eSIM White Label</p>
+        <p className="hidden md:block ">eSIM White Label</p>
       </div>
 
       <div className={styles.navigation}>
         <nav>
-          <ul className={styles.menuList}>
+          <ul className="hidden lg:flex flex-row gap-[60px] items-center justify-center list-none">
             <li>
               <a href="#">Home</a>
             </li>
@@ -37,7 +37,7 @@ function Header() {
           </ul>
         </nav>
 
-        <div className={styles.buttons}>
+        <div className="hidden md:flex flex-row justify-center items-center gap-[9px]">
           <button className={styles.cartBtn}>
             <Image
               className={styles.cartImg}
@@ -74,6 +74,11 @@ function Header() {
               </div>
             )}
           </div>
+        </div>
+        <div className="flex md:hidden flex-row justify-center align-middle gap-10">
+          <Image src="/Cart.png" alt="" width={35} height={10} />
+          <Image src="/pfp.png" alt="" width={35} height={10} />
+          <Image src="/hamburger.png" alt="" width={35} height={10} />
         </div>
       </div>
     </div>
