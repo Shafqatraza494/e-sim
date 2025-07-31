@@ -4,11 +4,11 @@ import "./globals.css";
 import Footer from "@/Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Hero from "@/Components/GlobalUi/Hero/Hero";
+import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 
 function page() {
   return (
     <>
-      <Header />
       <Hero
         para={
           " Our team is here to assist you promptly through any of these channels."
@@ -17,7 +17,7 @@ function page() {
         btn1={"Buy eSIM"}
         btn2={"My eSIM"}
       />
-      <Footer />
+      <UsageDetailsCard />
     </>
   );
 }
