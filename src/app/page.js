@@ -19,6 +19,7 @@ function page() {
       />
       <div className="flex flex-row px-5">
         <SimDetailsCard />
+        <UsageDetailsCard />
       </div>
     </>
   );

@@ -1,5 +1,7 @@
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
 import Header from "@/Components/Header/Header";
@@ -32,7 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${lato.variable} ${bayon.variable}`}
+        className={`${openSans.variable} ${lato.variable} ${bayon.variable} `}
       >
         <Header />
 
