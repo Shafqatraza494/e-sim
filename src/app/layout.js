@@ -1,5 +1,7 @@
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -15,7 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.variable}>{children}</body>
+      <body className={openSans.variable}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

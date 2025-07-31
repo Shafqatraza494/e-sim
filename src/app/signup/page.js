@@ -7,15 +7,10 @@ import apple from "../../../public/Images/Vector.png";
 import google from "../../../public/Images/google.png";
 import shape from "../../../public/Images/Star.jpg";
 import white from "../../../public/Images/white-shape.png";
-import view from "../../../public/Images/view.png";
-import styles from "./Login.module.css";
+import styles from "./Signup.module.css";
 
 const page = () => {
   const [showPassword, setShowPassword] = useState(false);
-
-  const togglePassword = () => {
-    setShowPassword((prev) => !prev);
-  };
   return (
     <div className={styles.container}>
       {/* Left Image Panel */}
@@ -49,45 +44,34 @@ const page = () => {
 
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
-        <h1>Login</h1>
+        <h1>Signup</h1>
 
         <label className={styles.label}>Email</label>
-        <input
-          type="text"
-          placeholder="Example@123"
-          className={styles.input1}
-        />
+        <input type="text" className={styles.input1} />
+
+
 
         <label className={styles.label}>Password</label>
-        <div className={styles.inputWrapper}>
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="*********"
-            className={styles.input1}
-          />
-          <div className={styles.imgeye} onClick={togglePassword}>
-            <Image
-              src={showPassword ? "/hide.png" : "/view.png"}
-              alt="Toggle password"
-              height={18}
-              width={18}
-            />
-          </div>
-        </div>
+        <input type="password" className={styles.input1} />
+<Image src="/view.png" width={14} height={14} alt="" />
 
+
+
+        <label className={styles.label}>Confirm password</label>
+        <input type="text" className={styles.input1} />
         <div className={styles.checkbox}>
           <div className={styles.rememberMe}>
             <input type="checkbox" />
             <span>Remember me</span>
           </div>
 
-          <button className={styles.signInBtn}>Sign In</button>
+          <button className={styles.signInBtn}>Signup</button>
         </div>
 
         <h4 className={styles.forgot}>Forgot Password?</h4>
 
         <p className={styles.signup}>
-          Don’t have an account? <a href="#">Signup</a>
+          Don’t have an account? <a href="#">Sign In</a>
         </p>
 
         <div className={styles.btn2}>

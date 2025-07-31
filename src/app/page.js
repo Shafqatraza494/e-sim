@@ -7,8 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 function page() {
   return (
     <>
-      <Header />
-      <Footer />
+      <h1>sjjsj</h1>
     </>
   );
 }
