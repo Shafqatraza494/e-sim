@@ -1,9 +1,14 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-[#EB662B] text-white rounded-t-4xl">
-      <div className="max-w-7xl mx-auto px-4 py-6 flex flex-wrap items-center justify-between">
-        <div className="text-xl font-semibold">eSIM White Label</div>
-        <nav className="flex flex-wrap gap-6 text-sm font-medium">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex md:flex-row flex-col gap-5 items-center md:justify-between justify-center">
+        <div className="flex flex-row gap-2">
+          <Image width={29} height={29} src="/logo-white.png" alt="" />{" "}
+          <p className="text-xl font-semibold">eSIM White Label</p>
+        </div>
+        <nav className="flex md:flex-row flex-col gap-6 text-sm font-medium text-center">
           <a href="#">Contact Us</a>
           <a href="#">FAQ</a>
           <a href="#">Blog</a>
@@ -33,47 +38,49 @@ export default function Footer() {
       </div>
 
       <div className="bg-[#FAFAFA] text-black py-10 px-14">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="font-semibold mb-4">Top Destination</h3>
-            <ul className="space-y-2 text-sm">
-              {[
-                "United States",
-                "United Kingdom",
-                "Japan",
-                "Mexico",
-                "China",
-                "France",
-                "Thailand",
-                "Spain",
-                "India",
-              ].map((item) => (
-                <li key={item}>
-                  <a href="#">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="max-w-7xl mx-auto flex md:flex-row flex-col justify-between gap-8">
+          <div className="flex flex-row gap-8">
+            <div>
+              <h3 className="font-semibold mb-4">Top Destination</h3>
+              <ul className="space-y-2 text-sm">
+                {[
+                  "United States",
+                  "United Kingdom",
+                  "Japan",
+                  "Mexico",
+                  "China",
+                  "France",
+                  "Thailand",
+                  "Spain",
+                  "India",
+                ].map((item) => (
+                  <li key={item}>
+                    <a href="#">{item}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#">General Terms and Conditions</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Refund Policy</a>
-              </li>
-              <li>
-                <a href="#">Cookies Law</a>
-              </li>
-              <li>
-                <a href="#">Open Internet Statement</a>
-              </li>
-            </ul>
+            <div>
+              <h3 className="font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#">General Terms and Conditions</a>
+                </li>
+                <li>
+                  <a href="#">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#">Refund Policy</a>
+                </li>
+                <li>
+                  <a href="#">Cookies Law</a>
+                </li>
+                <li>
+                  <a href="#">Open Internet Statement</a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div>

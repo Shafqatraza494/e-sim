@@ -2,6 +2,8 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
 
 const bayon = Bayon({
   weight: "400",
@@ -32,7 +34,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${openSans.variable} ${lato.variable} ${bayon.variable}`}
       >
+        <Header />
+
         {children}
+        <Footer />
       </body>
     </html>
   );

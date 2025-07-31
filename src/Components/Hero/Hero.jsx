@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonFill from "../ui/Buttons/ButtonFill";
-import ButtonOutline from "../ui/Buttons/ButtonOutline";
+import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
+import ButtonOutline from "../GlobalUi/ui/Buttons/ButtonOutline";
 
 function Hero({ para, heading, btn1, btn2 }) {
   console.log(para, heading, btn1, btn2);
