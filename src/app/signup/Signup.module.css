@@ -3,6 +3,7 @@
   height: 100vh;
   font-family: sans-serif;
   padding: 0 100px;
+  margin-bottom: 30px;
 }
 
 .leftPanel {
@@ -102,9 +103,8 @@
   z-index: 2;
   padding: 50px;
   font-size: 30px;
-  width:80%;
-  font-weight:bolder;
-
+  width: 80%;
+  font-weight: bolder;
 }
 
 .overlay h1,
@@ -112,7 +112,7 @@
   /* margin: 0.5rem 0; */
   color: white;
 }
-.overlayText p{
+.overlayText p {
   font-size: 15px;
 }
 
@@ -122,6 +122,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 .rightPanel h1 {
   text-align: center;
@@ -145,13 +146,25 @@
   background-color: #f5f7fa;
 }
 
+.imgeye {
+  position: absolute;
+  top: 37%;
+  right: -25px;
+  cursor: pointer;
+}
+
+.imgeye1 {
+  position: absolute;
+  top: 53.5%;
+  right: -25px;
+  cursor: pointer;
+}
+
 .rememberMe {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
-  
 }
 
 .signInBtn {
@@ -168,9 +181,8 @@
 .checkbox {
   display: flex;
   justify-content: space-between;
-  width:122%;
+  width: 122%;
   align-items: center;
- 
 }
 
 .forgot {
@@ -184,14 +196,12 @@
   margin-bottom: 20px;
   text-align: center;
   align-items: center;
-  
 }
 
 .signup a {
   color: black;
   text-underline-offset: 4px;
   text-decoration: underline;
-  
 }
 
 .socialBtn {
@@ -213,19 +223,13 @@
   justify-content: center;
   align-items: center;
   height: 50px;
- 
-  
-
 }
 .btn2 {
-  gap:10%;
+  gap: 10%;
   display: flex;
   justify-content: center;
   width: 500px;
   align-items: center;
-
-  
-  
 }
 .icon {
   width: 16px;

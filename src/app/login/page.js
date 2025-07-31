@@ -7,7 +7,6 @@ import apple from "../../../public/Images/Vector.png";
 import google from "../../../public/Images/google.png";
 import shape from "../../../public/Images/Star.jpg";
 import white from "../../../public/Images/white-shape.png";
-import view from "../../../public/Images/view.png";
 import styles from "./Login.module.css";
 
 const page = () => {

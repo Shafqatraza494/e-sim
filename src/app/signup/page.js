@@ -11,6 +11,15 @@ import styles from "./Signup.module.css";
 
 const page = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [ConfirmPassword, setConfirmPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const toglePassword = () => {
+    setConfirmPassword((prev) => !prev);
+  };
   return (
     <div className={styles.container}>
       {/* Left Image Panel */}
@@ -44,21 +53,43 @@ const page = () => {
 
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
+        {" "}
+       
         <h1>Signup</h1>
-
         <label className={styles.label}>Email</label>
-        <input type="text" className={styles.input1} />
-
-
-
+        <input
+          type="text"
+          placeholder="ali@786gmail.com"
+          className={styles.input1}
+        />
         <label className={styles.label}>Password</label>
-        <input type="password" className={styles.input1} />
-<Image src="/view.png" width={14} height={14} alt="" />
-
-
-
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="**********"
+          className={styles.input1}
+        />
+        <div className={styles.imgeye} onClick={togglePassword}>
+          <Image
+            src={showPassword ? "/hide.png" : "/view.png"}
+            alt="toglepassword2"
+            height={18}
+            width={18}
+          />
+        </div>
         <label className={styles.label}>Confirm password</label>
-        <input type="text" className={styles.input1} />
+        <input
+          type={ConfirmPassword ? "text" : "password"}
+          placeholder="*********"
+          className={styles.input1}
+        />
+        <div className={styles.imgeye1} onClick={toglePassword}>
+          <Image
+            src={ConfirmPassword ? "/hide.png" : "/view.png"}
+            alt="togglePassword"
+            width={18}
+            height={18}
+          />
+        </div>
         <div className={styles.checkbox}>
           <div className={styles.rememberMe}>
             <input type="checkbox" />
@@ -67,13 +98,10 @@ const page = () => {
 
           <button className={styles.signInBtn}>Signup</button>
         </div>
-
         <h4 className={styles.forgot}>Forgot Password?</h4>
-
         <p className={styles.signup}>
           Don’t have an account? <a href="#">Sign In</a>
         </p>
-
         <div className={styles.btn2}>
           <button className={styles.btn}>
             {" "}

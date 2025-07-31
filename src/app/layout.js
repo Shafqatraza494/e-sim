@@ -31,7 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.variable}>
+      <body
+        className={`${openSans.variable} ${lato.variable} ${bayon.variable} `}
+      >
         <Header />
         {children}
         <Footer />
