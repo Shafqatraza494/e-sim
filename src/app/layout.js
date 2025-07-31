@@ -1,5 +1,19 @@
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import { Lato } from "next/font/google";
+import { Bayon } from "next/font/google";
+
+const bayon = Bayon({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bayon",
+});
+
+const lato = Lato({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -15,7 +29,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.variable}>{children}</body>
+      <body
+        className={`${openSans.variable} ${lato.variable} ${bayon.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
