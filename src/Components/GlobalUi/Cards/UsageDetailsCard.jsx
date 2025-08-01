@@ -11,7 +11,7 @@ const UsageDetailsCard = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-between w-[550px] h-[500px]  border-1 rounded-2xl ">
+      <div className="flex flex-col justify-between w-[550px] h-[500px]  border-1 rounded-2xl bg-white">
         <div>
           <ul className="flex justify-center gap-[50px] mt-10 text-[22px]  align-middle ">
             <li className="text-lato font-[700] text-[#EB662B]   ">Data</li>
