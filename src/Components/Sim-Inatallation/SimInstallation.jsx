@@ -9,8 +9,7 @@ import QRCode from "./tabs/QRCode";
 import Manual from "./tabs/Manual";
 
 function SimInstallation() {
-  const [activeTab, setActiveTab] = useState("Data");
-  const [directData, setDirectData] = useState("direct");
+  const [activeTab, setActiveTab] = useState("Direct");
   return (
     <>
       <div className="flex flex-col gap-10 px-18">
@@ -24,8 +23,8 @@ function SimInstallation() {
           <ButtonOutlineOrange text={"Android Devices"} />
         </div>
         <div>
-          <ul className="flex   mt-1 text-[22px] align-middle">
-            {["Direct", "QR Code", "Manual"].map((tab, index) => (
+          <ul className="flex  mt-1 text-[22px] align-middle">
+            {["Direct", "QR-Code", "Manual"].map((tab, index) => (
               <li
                 key={index}
                 onClick={() => setActiveTab(tab)}
@@ -41,12 +40,9 @@ function SimInstallation() {
           </ul>
         </div>
         <div>
-          <Direct />
-          <h1>QR code</h1>
-          {directData === "qr" ? <p>QR Code</p> : null}
-          <h1>manual</h1>
-          <QRCode />
-          <Manual />
+          {activeTab === "Direct" ? <Direct /> : ""}
+          {activeTab === "QR-Code" ? <QRCode /> : ""}
+          {activeTab === "Manual" ? <Manual /> : ""}
         </div>
       </div>
     </>
