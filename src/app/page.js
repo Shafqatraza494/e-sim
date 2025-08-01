@@ -5,6 +5,7 @@ import Footer from "@/Components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Hero from "@/Components/Hero/Hero";
 import SimDetailsCard from "@/Components/GlobalUi/Cards/SimDetailsCard";
+import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 
 function page() {
   return (

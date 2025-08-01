@@ -1,4 +1,5 @@
 import SimDetailsCard from "@/Components/GlobalUi/Cards/SimDetailsCard";
+import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 import Hero from "@/Components/Hero/Hero";
 import SimInstallation from "@/Components/Sim-Inatallation/SimInstallation";
 import React from "react";
@@ -14,8 +15,9 @@ function page() {
         btn1={"Buy eSIM"}
         btn2={"My eSIM"}
       />
-      <div className="flex flex-row bg-[#EB662B0F] p-20 ">
+      <div className="flex flex-row bg-[#EB662B0F] p-20 gap-5 justify-center">
         <SimDetailsCard />
+        <UsageDetailsCard />
       </div>
       <SimInstallation />
     </div>
