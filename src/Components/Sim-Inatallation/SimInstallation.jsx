@@ -5,6 +5,8 @@ import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
 import ButtonOutline from "../GlobalUi/ui/Buttons/ButtonOutline";
 import ButtonOutlineOrange from "../GlobalUi/ui/Buttons/ButtonOutlineOrange";
 import Direct from "./tabs/Direct";
+import QRCode from "./tabs/QRCode";
+import Manual from "./tabs/Manual";
 
 function SimInstallation() {
   const [activeTab, setActiveTab] = useState("Data");
@@ -43,6 +45,8 @@ function SimInstallation() {
           <h1>QR code</h1>
           {directData === "qr" ? <p>QR Code</p> : null}
           <h1>manual</h1>
+          <QRCode />
+          <Manual />
         </div>
       </div>
     </>
