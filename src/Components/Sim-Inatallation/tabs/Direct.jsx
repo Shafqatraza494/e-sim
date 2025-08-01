@@ -4,7 +4,7 @@ import React from "react";
 function Direct() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col md:flex-row gap-8 p-6">
+      <div className="flex flex-col md:flex-row gap-8 py-6">
         {/* Step 1 */}
         <div className="md:w-1/2">
           <h2 className="text-[#F15A24] w-fit bg-[#EB662B1A] p-1 rounded-[7px] text-sm mb-4">
@@ -61,7 +61,7 @@ function Direct() {
 
       {/* {sim help} */}
 
-      <div className="p-4 space-y-4 ">
+      <div className="py-4 space-y-4 ">
         <div className="bg-[#EB662B1A] w-[400px] text-[#F15A24] p-2 rounded-md flex items-center gap-2 text-sm">
           <Image
             width={20}
