@@ -1,11 +1,12 @@
 import SimDetailsCard from "@/Components/GlobalUi/Cards/SimDetailsCard";
+import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 import Hero from "@/Components/Hero/Hero";
 import SimInstallation from "@/Components/Sim-Inatallation/SimInstallation";
 import React from "react";
 
 function page() {
   return (
-    <div>
+    <div className="bg-[#EB662B0F]">
       <Hero
         heading={"Manage your sim here."}
         para={
@@ -14,9 +15,11 @@ function page() {
         btn1={"Buy eSIM"}
         btn2={"My eSIM"}
       />
-      <div className="flex flex-row bg-[#EB662B0F] p-20 ">
+      <div className="flex flex-row  p-20 gap-4">
         <SimDetailsCard />
+        <UsageDetailsCard />
       </div>
+
       <SimInstallation />
     </div>
   );
