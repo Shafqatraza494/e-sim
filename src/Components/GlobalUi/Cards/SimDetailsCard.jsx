@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { Flamenco } from "next/font/google";
+import ButtonFill from "../ui/Buttons/ButtonFill";
+import ButtonOutline from "../ui/Buttons/ButtonOutline";
+import ButtonOutlineOrange from "../ui/Buttons/ButtonOutlineOrange";
 
 function SimDetailsCard() {
   const infoData = [
@@ -56,12 +59,12 @@ function SimDetailsCard() {
   ];
 
   return (
-    <div className="w-[550px] h-[500px] border-1 rounded-2xl py-3 bg-white">
-      <ul className=" grid grid-cols-2 place-items-left gap-8 pb-5">
+    <div className="lg:w-[550px] w-[391px] lg:h-[500px] border-1 rounded-2xl py-3 bg-white">
+      <ul className=" grid lg:grid-cols-2 grid-cols-1 place-items-left gap-8 pb-5">
         {infoData.map((info, index) => (
           <li
             key={index}
-            className="flex flex-row gap-2 text-lato justify-start items-start align-top pl-8"
+            className="flex flex-row gap-2 text-lato justify-start items-start align-top lg:pl-8 pl-2 lg:bg-white bg-[#FBFBFB] lg:mx-0 mx-5 rounded-[9px] lg:py-0 py-4"
           >
             {" "}
             <Image src={info.image} alt="" width={30} height={30} />{" "}
@@ -89,7 +92,13 @@ function SimDetailsCard() {
           </li>
         ))}
       </ul>
-      <div className="flex flex-col gap-2 px-8">
+
+      <div className="lg:hidden flex flex-col gap-4 p-6 text-white">
+        <ButtonFill text={"Manage Subscription"} />
+        <ButtonOutlineOrange text={"Cancel Subscription"} />
+      </div>
+
+      <div className="hidden lg:flex flex-col gap-2 px-8 ">
         <Image height={100} width={100} src="/SimDetailsImages/QR.png" alt="" />
         <div className="flex flex-row gap-2">
           <Image

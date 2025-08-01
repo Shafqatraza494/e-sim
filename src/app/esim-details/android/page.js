@@ -6,7 +6,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="bg-[#EB662B0F]">
+    <div className="lg:bg-[#EB662B0F]">
       <Hero
         heading={"Manage your sim here."}
         para={
@@ -15,7 +15,7 @@ function page() {
         btn1={"Buy eSIM"}
         btn2={"My eSIM"}
       />
-      <div className="flex lg:flex-row flex-col p-20 gap-4">
+      <div className="flex lg:flex-row flex-col lg:px-20 lg:py-20 py-5 px-5 gap-4">
         <SimDetailsCard />
         <UsageDetailsCard />
       </div>
