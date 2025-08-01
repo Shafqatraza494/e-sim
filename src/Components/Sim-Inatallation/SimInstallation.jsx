@@ -12,10 +12,11 @@ function SimInstallation() {
   const [activeTab, setActiveTab] = useState("Direct");
   return (
     <>
-      <div className="flex flex-col gap-10 px-18">
+      <div className="flex flex-col gap-10 lg:px-18 px-6">
         <div className="">
-          <h1 className="font-open-sans font-bold text-[64px] leading-[89%] align-middle">
-            e<span className="bayon-text">SIM</span> INSTALLATION{" "}
+          <h1 className="font-open-sans lg:font-bold font-semibold lg:text-[64px] md:text-[40px] text-[22px] leading-[89%] align-middle">
+            e<span className="bayon-text lg:font-bold font-thin">SIM</span>{" "}
+            INSTALLATION{" "}
           </h1>
         </div>
         <div className="text-white flex flex-row gap-4">
