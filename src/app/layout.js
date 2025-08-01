@@ -4,6 +4,7 @@ import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const bayon = Bayon({
   weight: "400",
