@@ -65,8 +65,8 @@ function QRCode() {
 
       {/* sim help */}
 
-      <div className=" flex flex-row pb-10">
-        <div className="flex flex-col justify-between items-center text-center text-[12px] border-1 rounded-[23px] w-[370px] h-[380px] py-[14px] px-[23px]">
+      <div className=" flex md:flex-row flex-col pb-10">
+        <div className="hidden lg:flex flex-col justify-between items-center text-center text-[12px] border-1 rounded-[23px] md:w-[370px] h-[380px] py-[14px] px-[23px]">
           <p>Scan the QR Code</p>
           <Image
             width={203}
@@ -102,8 +102,8 @@ function QRCode() {
           </div>
         </div>
 
-        <div className="p-4 space-y-4">
-          <div className="bg-[#EB662B1A] w-[400px] text-[#F15A24] p-2 rounded-md flex items-center gap-2 text-sm">
+        <div className="py-4 space-y-4 md:block flex justify-center flex-col items-center md:border-0 border-1 my-4 rounded-[29px]">
+          <div className="bg-[#EB662B1A] md:w-[400px] w-[300px] text-[#F15A24] p-2 rounded-md flex items-center gap-2 text-sm">
             <Image
               width={20}
               height={20}
@@ -114,7 +114,7 @@ function QRCode() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex flex-row justify-between items-center bg-[#EB662B1A] h-16 p-4 rounded-sm relative w-[350px]">
+            <div className="flex flex-row justify-between items-center bg-[#EB662B1A] h-16 p-4 rounded-sm relative md:w-[350px] w-[300px]">
               <div>
                 <div className="text-[#F15A24] font-medium ">APN</div>
                 <div className="text-black font-semibold text-sm">
@@ -129,7 +129,7 @@ function QRCode() {
               />
             </div>
 
-            <div className="flex flex-row justify-between items-center w-[350px] bg-[#EB662B1A] h-16 p-4 rounded-sm relative">
+            <div className="flex flex-row justify-between items-center md:w-[350px] w-[300px] bg-[#EB662B1A] h-16 p-4 rounded-sm relative">
               <div>
                 <div className="text-[#F15A24] font-medium mb-1">APN</div>
                 <div className="text-black font-semibold text-sm">
