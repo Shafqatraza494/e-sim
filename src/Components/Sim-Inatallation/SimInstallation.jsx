@@ -3,6 +3,8 @@ import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
 import ButtonOutline from "../GlobalUi/ui/Buttons/ButtonOutline";
 import ButtonOutlineOrange from "../GlobalUi/ui/Buttons/ButtonOutlineOrange";
 import Direct from "./tabs/Direct";
+import QRCode from "./tabs/QRCode";
+import Manual from "./tabs/Manual";
 
 function SimInstallation() {
   return (
@@ -19,6 +21,8 @@ function SimInstallation() {
         </div>
         <div>
           <Direct />
+          <QRCode />
+          <Manual />
         </div>
       </div>
     </>
