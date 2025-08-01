@@ -4,7 +4,7 @@ import React from "react";
 function Direct() {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col md:flex-row gap-8 py-6">
+      <div className="flex flex-col md:flex-row gap-8 pb-6">
         {/* Step 1 */}
         <div className="md:w-1/2">
           <h2 className="text-[#F15A24] w-fit bg-[#EB662B1A] p-1 rounded-[7px] text-sm mb-4">

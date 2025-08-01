@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
 import ButtonOutline from "../GlobalUi/ui/Buttons/ButtonOutline";
 import ButtonOutlineOrange from "../GlobalUi/ui/Buttons/ButtonOutlineOrange";
@@ -7,6 +9,7 @@ import QRCode from "./tabs/QRCode";
 import Manual from "./tabs/Manual";
 
 function SimInstallation() {
+  const [activeTab, setActiveTab] = useState("Direct");
   return (
     <>
       <div className="flex flex-col gap-10 px-18">
@@ -20,9 +23,26 @@ function SimInstallation() {
           <ButtonOutlineOrange text={"Android Devices"} />
         </div>
         <div>
-          <Direct />
-          <QRCode />
-          <Manual />
+          <ul className="flex  mt-1 text-[22px] align-middle">
+            {["Direct", "QR-Code", "Manual"].map((tab, index) => (
+              <li
+                key={index}
+                onClick={() => setActiveTab(tab)}
+                className={`cursor-pointer border-b-3   ${
+                  activeTab === tab
+                    ? "  w-[130px] border-[#EB662B] text-[#EB662B] font-[700]"
+                    : " w-[130px] text-black font-[400]"
+                }`}
+              >
+                {tab}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          {activeTab === "Direct" ? <Direct /> : ""}
+          {activeTab === "QR-Code" ? <QRCode /> : ""}
+          {activeTab === "Manual" ? <Manual /> : ""}
         </div>
       </div>
     </>
