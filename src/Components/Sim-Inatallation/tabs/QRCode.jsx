@@ -65,7 +65,7 @@ function QRCode() {
 
       {/* sim help */}
 
-      <div className=" flex md:flex-row flex-col pb-10">
+      <div className=" flex md:flex-row flex-col pb-10 gap-5">
         <div className="hidden lg:flex flex-col justify-between items-center text-center text-[12px] border-1 rounded-[23px] md:w-[370px] h-[380px] py-[14px] px-[23px]">
           <p>Scan the QR Code</p>
           <Image
