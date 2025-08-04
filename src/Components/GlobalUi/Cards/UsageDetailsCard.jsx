@@ -38,7 +38,7 @@ const UsageDetailsCard = () => {
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="flex flex-col justify-between w-[550px] h-[500px] border-1 rounded-2xl bg-white">
+    <div className="flex flex-col justify-between w-[600px] h-[500px] border-1 rounded-2xl bg-white">
       <div>
         {/* Tabs */}
         <ul className="flex justify-center  mt-10 text-[22px] align-middle">
