@@ -15,7 +15,7 @@ function page() {
         btn1={"Buy eSIM"}
         btn2={"My eSIM"}
       />
-      <div className="flex lg:flex-row flex-col lg:mx-14 lg:py-20 py-5 px-5 gap-4 ">
+      <div className="flex lg:flex-row flex-col lg:mx-14 lg:py-20 py-5 px-5 gap-4 justify-center items-center">
         <SimDetailsCard />
         <UsageDetailsCard />
       </div>
