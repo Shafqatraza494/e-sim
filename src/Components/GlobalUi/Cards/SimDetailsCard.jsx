@@ -59,7 +59,7 @@ function SimDetailsCard() {
   ];
 
   return (
-    <div className="lg:w-[550px] w-[391px] lg:h-[500px] border-1 rounded-2xl py-3 bg-white">
+    <div className="lg:w-[600px] w-[391px] lg:h-[500px] border-1 rounded-2xl py-3 bg-white">
       <ul className=" grid lg:grid-cols-2 grid-cols-1 place-items-left gap-8 pb-5">
         {infoData.map((info, index) => (
           <li
