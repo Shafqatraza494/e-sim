@@ -1,11 +1,13 @@
-"use client"; // if you're using Next.js 13+ app router
+"use client";
 
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Image from "next/image";
+import { useCart } from "@/Context/CartContext";
 
 function Header() {
   const [langOpen, setLangOpen] = useState(false);
+  const { toggleCart } = useCart();
 
   const languages = [
     { code: "en", label: "English" },
@@ -14,7 +16,7 @@ function Header() {
   ];
 
   return (
-    <div className={styles.header}>
+    <div className="flex flex-row justify-between items-center md:px-[60px] px-[25px] py-[20px]">
       <div className={styles.logo}>
         <a href="#">
           <Image src="/logo.png" alt="Logo" width={29} height={29} />
@@ -38,7 +40,7 @@ function Header() {
         </nav>
 
         <div className="hidden md:flex flex-row justify-center items-center gap-[9px]">
-          <button className={styles.cartBtn}>
+          <button className={styles.cartBtn} onClick={toggleCart}>
             <Image
               className={styles.cartImg}
               src="/Vector.png"
@@ -75,8 +77,17 @@ function Header() {
             )}
           </div>
         </div>
+
         <div className="flex md:hidden flex-row justify-center align-middle gap-10">
-          <Image src="/Cart.png" alt="" width={35} height={10} />
+          {/* Optional: mobile cart icon can also call toggleCart */}
+          <Image
+            src="/Cart.png"
+            alt=""
+            width={35}
+            height={10}
+            onClick={toggleCart} // 👈 optional
+            className="cursor-pointer"
+          />
           <Image src="/pfp.png" alt="" width={35} height={10} />
           <Image src="/hamburger.png" alt="" width={35} height={10} />
         </div>

@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
 import ButtonOutline from "../GlobalUi/ui/Buttons/ButtonOutline";
+import DummyCartButton from "../DummyCartButton";
 
 function Hero({ para, heading, btn1, btn2 }) {
   console.log(para, heading, btn1, btn2);
@@ -16,6 +19,7 @@ function Hero({ para, heading, btn1, btn2 }) {
       <div className="flex flex-row gap-3">
         {btn1 && <ButtonFill text={btn1} />}
         {btn2 && <ButtonOutline text={btn2} />}
+        <DummyCartButton />
       </div>
     </div>
   );

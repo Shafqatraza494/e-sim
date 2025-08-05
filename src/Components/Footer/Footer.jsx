@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#EB662B] text-white rounded-t-4xl">
-      <div className="max-w-7xl mx-auto px-4 py-6 flex md:flex-row flex-col gap-5 items-center md:justify-between justify-center">
+    <footer className="bg-[#EB662B] text-white rounded-t-4xl ">
+      <div className="max-w-7xl mx-14 py-6 flex md:flex-row flex-col gap-5 items-center md:justify-between justify-center">
         <div className="flex flex-row gap-2">
           <Image width={29} height={29} src="/logo-white.png" alt="" />{" "}
           <p className="text-xl font-semibold">eSIM White Label</p>

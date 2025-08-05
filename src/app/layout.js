@@ -5,6 +5,9 @@ import Footer from "@/Components/Footer/Footer";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { CartProvider } from "@/Context/CartContext";
+import Providers from "./Providers";
+import CartDrawer from "@/Components/GlobalUi/Cart/CartDrawer";
 
 const bayon = Bayon({
   weight: "400",
@@ -35,10 +38,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${openSans.variable} ${lato.variable} ${bayon.variable} `}
       >
-        <Header />
-
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          <CartDrawer />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
