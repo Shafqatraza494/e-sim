@@ -9,14 +9,7 @@ import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 function page() {
   return (
     <>
-      <Hero
-        para={
-          " Our team is here to assist you promptly through any of these channels."
-        }
-        heading={"Manage your sim here."}
-        btn1={"Buy eSIM"}
-        btn2={"My eSIM"}
-      />
+      <div>starting work nw</div>
     </>
   );
 }
