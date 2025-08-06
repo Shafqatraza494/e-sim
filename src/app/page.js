@@ -5,12 +5,16 @@ import Footer from "@/Components/Footer/Footer";
 import Hero from "@/Components/Hero/Hero";
 import SimDetailsCard from "@/Components/GlobalUi/Cards/SimDetailsCard";
 import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
-import HeroHome from "@/Components/Home/HeroHome";
+import EsimSection from "@/Components/Home/EsimSection/EsimSection";
+import Grid from "@/Components/Home/Section3/Grid";
 
 function page() {
   return (
     <>
-      <HeroHome />
+      <div className="md:mx-14 mx-8">
+        <EsimSection />
+        <Grid />
+      </div>
     </>
   );
 }
