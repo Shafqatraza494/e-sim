@@ -8,6 +8,7 @@ function EsimSection() {
       <h1 className="bayon-text md:text-[64px] text-[24px] md:text-left text-center">
         How Does the eSIM Work?
       </h1>
+
       <div className="flex lg:flex-row flex-col lg:gap-[97px] gap-6 justify-center">
         <div className="lg:w-[528px] w-[360px] md:w-full ">
           <Slider />

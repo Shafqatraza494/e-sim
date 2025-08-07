@@ -1,18 +1,13 @@
-import { Open_Sans } from "next/font/google";
+import AppLayout from "@/Components/AppLayout";
 import "./globals.css";
-import Header from "@/Components/Header/Header";
-import Footer from "@/Components/Footer/Footer";
+import { Open_Sans } from "next/font/google";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import { CartProvider } from "@/Context/CartContext";
-import Providers from "./Providers";
-import CartDrawer from "@/Components/GlobalUi/Cart/CartDrawer";
 
-const bayon = Bayon({
-  weight: "400",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
-  variable: "--font-bayon",
+  weight: ["400", "600", "700"],
 });
 
 const lato = Lato({
@@ -21,10 +16,10 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const bayon = Bayon({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  variable: "--font-bayon",
 });
 
 export const metadata = {
@@ -36,14 +31,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${lato.variable} ${bayon.variable} `}
+        className={`${openSans.variable} ${lato.variable} ${bayon.variable}`}
       >
-        <Providers>
-          <Header />
-          <CartDrawer />
-          {children}
-          <Footer />
-        </Providers>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );
