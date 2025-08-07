@@ -10,6 +10,7 @@ import Grid from "@/Components/Home/Section3/Grid";
 import HeroHome from "@/Components/Home/hero/HeroHome";
 import Country from "@/Components/Home/Country/Country";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
+import Faq from "@/Components/Home/FAQSection/Faq";
 
 function page() {
   return (
@@ -21,6 +22,9 @@ function page() {
         <Country />
         <EsimSection />
         <Grid />
+      </div>
+      <div className="bg-[#EB662B0F]  px-14 flex flex-col justify-center">
+        <Faq />
       </div>
       <div className="my-20">
         <Banner />
