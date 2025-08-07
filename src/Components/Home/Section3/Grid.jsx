@@ -5,9 +5,9 @@ function Grid() {
   return (
     <div className=" lg:h-[559px] h-[1398px] my-20 flex lg:flex-row flex-col gap-5 items-center">
       {/* ///////////////////////////////left///////////////////////////////// */}
-      <div className=" h-[559px]  w-[380px] flex flex-col gap-[20px]">
-        <div className="w-[380px] h-[352px] bg-[url('/Home/grid/grid1.png')] bg-cover bg-center rounded-[22px]"></div>
-        <div className="w-[380px] h-[186px]  bg-[#EB662B] rounded-[22px] p-6 text-white">
+      <div className=" h-[559px]  w-[400px] flex flex-col gap-[20px]">
+        <div className="w-[400px] h-[352px] bg-[url('/Home/grid/grid1.png')] bg-cover bg-center rounded-[22px]"></div>
+        <div className="w-[400px] h-[186px]  bg-[#EB662B] rounded-[22px] p-6 text-white">
           <h1 className="bayon-text text-[36px]">Instant Delivery</h1>
           <p className="lato-text ">
             Your eSIM data plan arrives by email within minutes. Setup is quick
@@ -16,7 +16,7 @@ function Grid() {
         </div>
       </div>
       {/* //////////////////////////////////center//////////////////////////////////// */}
-      <div className="relative h-[559px]  w-[380px] bg-[url('/Home/grid/grid2.png')] bg-cover bg-center rounded-[22px] p-6 text-white flex flex-col justify-between">
+      <div className="relative h-[559px]  w-[400px] bg-[url('/Home/grid/grid2.png')] bg-cover bg-center rounded-[22px] p-6 text-white flex flex-col justify-between">
         <Image
           className="absolute bottom-0 left-0"
           width={380}
@@ -40,8 +40,8 @@ function Grid() {
         </p>
       </div>
       {/* /////////////////////////////////////right//////////////////////////////////// */}
-      <div className="  h-[559px]  w-[380px] flex flex-col gap-[20px]">
-        <div className="w-[380px] h-[186px]  bg-[#EB662B] rounded-[22px] p-6 text-white">
+      <div className="  h-[559px]  w-[400px] flex flex-col gap-[20px]">
+        <div className="w-[400px] h-[186px]  bg-[#EB662B] rounded-[22px] p-6 text-white">
           <h1 className="bayon-text text-[36px]">Instant Delivery</h1>
           <p className="lato-text ">
             Use iPhone eSIM or dual SIM devices to run both your local number
@@ -49,7 +49,7 @@ function Grid() {
             advantages.
           </p>
         </div>
-        <div className="w-[380px] h-[352px] bg-[url('/Home/grid/grid3.png')] bg-cover bg-center rounded-[22px]"></div>
+        <div className="w-[400px] h-[352px] bg-[url('/Home/grid/grid3.png')] bg-cover bg-center rounded-[22px]"></div>
       </div>
     </div>
   );
