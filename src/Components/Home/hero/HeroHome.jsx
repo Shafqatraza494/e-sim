@@ -26,19 +26,19 @@ function HeroHome() {
   const allCountries = [...countryData, ...countryData];
   return (
     <>
-      <div className="relative bg-[url('/image5.png')] rounded-[20px] bg-cover bg-center h-[765px] w-full flex items-center justify-center flex-col gap-20  pb-0 pt-46">
+      <div className="relative bg-[url('/image5.png')] md:rounded-[20px] bg-cover bg-center h-[765px] w-full flex items-center md:justify-center flex-col gap-20  pt-10">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-peach-500 to-peach-0 mix-blend-hard-light z-0"></div>
 
         {/* Content */}
-        <div className="absolute top-30 right-80">
+        <div className="hidden lg:block absolute top-5 right-45">
           <Image height={67.8} width={69.38} src="/Home/shapes.png" alt="" />
         </div>
-        <div className="relative z-10 max-w-4xl text-center">
-          <h1 className="text-white bayon-text text-[100px] md:text-5xl  lg:text-6xl font-[400] mb-4">
+        <div className=" text-center  px-15">
+          <h1 className="text-white bayon-text md:text-[80px] text-[48px]  mb-4">
             WE CONNECT YOU GLOBALLY
           </h1>
-          <p className="text-[#000000] text-[22px] lato-text md:text-lg font-[400] mb-6 w-[1030px]">
+          <p className="text-[#000000] md:text-[22px] lato-text text-[15px]  mb-6 ">
             Whether you're jet-setting across Europe, backpacking through
             Southeast Asia, or navigating a business trip to the USA, we offer
             the best eSIM for international travel with instant setup, secure
@@ -46,22 +46,22 @@ function HeroHome() {
           </p>
 
           {/* Search Bar with Icons Inside */}
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
+          <div className="flex justify-center items-center">
+            <div className="relative md:w-full max-w-md flex flex-row gap-2 justify-center">
               {/* Left Icon */}
-              <div className="absolute inset-y-0 left-16 flex items-center pl-3 pointer-events-none">
+              <div className="absolute inset-y-0 md:left-8 left-0 flex items-center pl-3 pointer-events-none">
                 <Search className="h-4 w-4 text-black-400" />
               </div>
 
               {/* Input */}
               <input
                 type="text"
-                className="w-[330px] pl-9 pr-10 py-2 rounded-full lato-text font-[400]text-[#000000]  border border-black bg-[#FFFFFF] text-sm outline-none"
+                className="md:w-[330px] pl-9 pr-10 py-2 rounded-full lato-text font-[400]text-[#000000]  border border-black bg-[#FFFFFF] text-sm outline-none"
                 placeholder="Find data plans in 200+ countries"
               />
 
               {/* Right Button Icon */}
-              <button className="absolute inset-y-0 right-4 border-1 flex items-center pr-3 bg-gray-200 rounded-full px-2">
+              <button className="  border-1 flex items-center pr-3 bg-gray-200 rounded-full px-2">
                 <ChevronRight className="h-4 w-4 text-black" />
               </button>
             </div>

@@ -15,7 +15,7 @@ export default function Banner() {
           and Android.
         </p>
 
-        <div className="flex gap-4 mb-6 flex-wrap items-center justify-center">
+        <div className="flex gap-4 mb-6 flex-wrap items-center md:justify-start justify-center">
           <div className="flex items-center gap-1 text-yellow-400">
             {[...Array(5)].map((_, idx) => (
               <StarIcon key={idx} className="w-5 h-5" />
@@ -26,7 +26,7 @@ export default function Banner() {
           </span>
         </div>
 
-        <div className="flex gap-4 flex-wrap justify-center">
+        <div className="flex gap-4 flex-wrap md:justify-start justify-center">
           <a href="#" className="block">
             <Image
               src="/google-play.png"
