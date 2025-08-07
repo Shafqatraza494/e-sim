@@ -106,7 +106,7 @@ const Country = () => {
           for multiple borders
         </p>
       </div>
-      <ul className="hidden md:flex flex-row items-center   mt-10 text-[22px] align-middle px-4">
+      <ul className="hidden md:flex flex-row items-center   mt-10 text-[22px] align-middle">
         {["Local eSIMs", "Regional eSIMs", "Global eSIMs"].map((tab, index) => (
           <li
             key={index}

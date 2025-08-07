@@ -50,8 +50,16 @@ function Header() {
             />
           </button>
 
-          <button className={styles.registerBtn}>Register</button>
-          <button className={styles.loginBtn}>Login</button>
+          <a href="/signup">
+            <button className={`${styles.registerBtn} cursor-pointer`}>
+              Register
+            </button>
+          </a>
+          <a href="/login">
+            <button className={`${styles.loginBtn} cursor-pointer`}>
+              Login
+            </button>
+          </a>
 
           <div className="relative">
             <button
