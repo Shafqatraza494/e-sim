@@ -45,8 +45,8 @@ const page = () => {
             </div>
           </div>
           <div className={styles.overlayText}>
-            <h1>Your only eSIM Solution</h1>
-            <p>Instant. Secure. Global</p>
+            <h1 className="lato-text">Your only eSIM Solution</h1>
+            <p className="lato-text">Instant. Secure. Global</p>
           </div>
         </div>
       </div>
@@ -54,8 +54,7 @@ const page = () => {
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
         {" "}
-       
-        <h1>Signup</h1>
+        <h1 className="text-center lato-text text-[43px] font-[700]">Signup</h1>
         <label className={styles.label}>Email</label>
         <input
           type="text"
@@ -110,7 +109,7 @@ const page = () => {
           </button>
           <button className={styles.btn}>
             {" "}
-            <Image className={styles.icon} src={apple} alt="" /> Continue with
+            <Image className={styles.icon1} src={apple} alt="" /> Continue with
             Apple
           </button>
         </div>

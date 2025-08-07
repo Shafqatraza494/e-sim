@@ -48,16 +48,22 @@ const page = () => {
 
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
-        <h1>Login</h1>
+        <h1 className="lato-text font-[700] text-[43px] flex flex-row justify-center items-center">
+          Login
+        </h1>
 
-        <label className={styles.label}>Email</label>
+        <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
+          Email
+        </label>
         <input
           type="text"
           placeholder="Example@123"
           className={styles.input1}
         />
 
-        <label className={styles.label}>Password</label>
+        <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
+          Password
+        </label>
         <div className={styles.inputWrapper}>
           <input
             type={showPassword ? "text" : "password"}
@@ -74,16 +80,20 @@ const page = () => {
           </div>
         </div>
 
-        <div className={styles.checkbox}>
+        <div className="flex flex-row justify-between mb-5">
           <div className={styles.rememberMe}>
             <input type="checkbox" />
-            <span>Remember me</span>
+            <span className="lato-text font-[500] text-[12px] text-[#3D3D3D] ">
+              Remember me
+            </span>
           </div>
 
-          <button className={styles.signInBtn}>Sign In</button>
+          <button className="bg-[#EB662B] rounded-[18px] h-[44px] w-[162px] text-white ">
+            Sign In
+          </button>
         </div>
 
-        <h4 className={styles.forgot}>Forgot Password?</h4>
+        <h4 className="lato-text font-[400] text-[12px] ">Forgot Password?</h4>
 
         <p className={styles.signup}>
           Don’t have an account? <a href="#">Signup</a>
@@ -92,12 +102,12 @@ const page = () => {
         <div className={styles.btn2}>
           <button className={styles.btn}>
             {" "}
-            <Image className={styles.icon} src={google} alt="" /> Continue with
+            <Image width={15} height={15} src={google} alt="" /> Continue with
             Google
           </button>
           <button className={styles.btn}>
             {" "}
-            <Image className={styles.icon} src={apple} alt="" /> Continue with
+            <Image width={16} height={19} src={apple} alt="" /> Continue with
             Apple
           </button>
         </div>

@@ -1,9 +1,7 @@
 .container {
   display: flex;
-  height: 100vh;
   font-family: sans-serif;
-  padding: 0 100px;
-  margin-bottom: 30px;
+  padding: 80px 100px;
 }
 
 .leftPanel {
@@ -17,8 +15,8 @@
   justify-content: space-between;
   padding: 30px;
   position: relative;
-  width: 500px;
-  height: 100vh;
+  width: 636px;
+  height: 910px;
 }
 
 .midpanel {
@@ -26,8 +24,9 @@
   justify-content: space-between;
   text-align: center;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
   padding: 39px 80px;
+  margin-left: 60px;
 }
 
 .midpanel h3,
@@ -80,15 +79,21 @@
 
 .overlayText {
   color: white;
-  width: 80%;
+  font-weight: 700;
+  font: bold;
   z-index: 2;
   padding: 50px;
-  font-size: 30px;
+  font-size: 65px;
   font-weight: bolder;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .overlayText p {
-  font-size: 15px;
+  font-size: 14.44px;
+  font-weight: 400;
 }
 
 .rightPanel {
@@ -98,14 +103,6 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-}
-
-.rightPanel h1 {
-  text-align: center;
-  font-size: 43px;
-  font-weight: 540;
-  justify-content: center;
-  align-items: center;
 }
 
 .label {
@@ -119,22 +116,21 @@
   margin-bottom: 20px;
   border-radius: 8px;
   border: none;
-  width: 510px;
   height: 44px;
   background-color: #f5f7fa;
 }
 
 .imgeye {
   position: absolute;
-  top: 37%;
-  right: -25px;
+  top: 41.7%;
+  right: 70px;
   cursor: pointer;
 }
 
 .imgeye1 {
   position: absolute;
-  top: 53.5%;
-  right: -25px;
+  top: 53.2%;
+  right: 70px;
   cursor: pointer;
 }
 
@@ -160,7 +156,7 @@
 .checkbox {
   display: flex;
   justify-content: space-between;
-  width: 122%;
+
   align-items: center;
 }
 
@@ -206,16 +202,20 @@
 }
 
 .btn2 {
-  gap: 10%;
+  gap: 20px;
   display: flex;
   justify-content: center;
-  width: 500px;
   align-items: center;
 }
 
 .icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+.icon1 {
   width: 16px;
-  height: 19.64px;
+  height: 19px;
   margin-right: 5px;
 }
 
