@@ -6,6 +6,11 @@
   align-items: center;
   padding: 80px 100px;
 }
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column;
+  }
+}
 
 .leftPanel {
   overflow: hidden;

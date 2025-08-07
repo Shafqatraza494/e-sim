@@ -28,13 +28,13 @@ function Header() {
         <nav>
           <ul className="hidden lg:flex flex-row gap-[60px] items-center justify-center list-none">
             <li>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Buy eSIM</a>
+              <a href="/buy-esim">Buy eSIM</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="/about-us">About Us</a>
             </li>
           </ul>
         </nav>
@@ -45,8 +45,8 @@ function Header() {
               className={styles.cartImg}
               src="/Vector.png"
               alt="Cart"
-              width={24}
-              height={24}
+              width={18}
+              height={18}
             />
           </button>
 
