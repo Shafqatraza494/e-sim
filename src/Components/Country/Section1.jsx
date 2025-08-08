@@ -40,7 +40,7 @@ function Section1() {
           for multiple borders
         </p>
       </div>
-      <div className="my-10">
+      <div className="my-10 ">
         <ul className="hidden md:flex flex-row items-center   mt-10 text-[22px] align-middle">
           {["Standard Plan", "Unlimited Data", "Data/Voice"].map(
             (tab, index) => (
@@ -59,14 +59,14 @@ function Section1() {
           )}
         </ul>
       </div>
-      <div className="flex md:flex-row flex-col gap-10">
-        <div className="md:w-[700px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10">
+      <div className="flex md:flex-row flex-col gap-10 justify-center md:justify-start items-center">
+        <div className="md:w-[700px] w-[360px] flex md:justify-start justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-[100%]">
             {plans.map((plan, idx) => (
               <div
                 key={idx}
                 onClick={() => setSelectedIndex(idx)}
-                className={`border rounded-xl p-4 shadow-md w-full max-w-[250px] cursor-pointer transition-all duration-200
+                className={`border rounded-xl p-4 shadow-md w-full md:max-w-[250px] max-w-[350px] cursor-pointer transition-all duration-200
             ${
               selectedIndex === idx
                 ? "ring-2 ring-orange-400"
