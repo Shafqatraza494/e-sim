@@ -88,7 +88,7 @@ const CheckoutCard = () => {
         </ul>
 
         {/* Features List */}
-        <ul className="mt-3 lato-text list-disc list-inside text-[11px] md:text-[10px] leading-6  md:w-[490px] w-[345px] flex justify-center md:h-[180px]  flex-col">
+        <ul className="mt-3 lato-text list-disc list-inside text-[11px] md:text-[10px] leading-6   flex justify-center md:h-[180px]  flex-col">
           <h1 className=" font-[400] text-[#000000] ">
             About eSIMCard's Netherlands eSIM
           </h1>

@@ -5,6 +5,7 @@ import Section3 from "@/Components/Country/Section3";
 import CustomerReviews from "@/Components/Customer Reviews/CustomerReviews";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Hero from "@/Components/Hero/Hero";
+import Faq from "@/Components/Home/FAQSection/Faq";
 import React from "react";
 
 function page() {
@@ -23,6 +24,9 @@ function page() {
       <CustomerReviews />
       </div>
       <Banner />
+      <div className="bg-[#EB662B0F]  px-14 flex flex-col justify-center my-10">
+        <Faq />
+      </div>
     </div>
   );
 }

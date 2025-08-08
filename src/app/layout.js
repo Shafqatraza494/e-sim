@@ -3,6 +3,7 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import { Lato } from "next/font/google";
 import { Bayon } from "next/font/google";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
