@@ -8,7 +8,7 @@ const CheckoutCard = () => {
   const [activeTab, setActiveTab] = useState("Data");
 
   return (
-    <div className="border border-black md:w-[517px] w-[362px] md:h-[552px]  rounded-[13.4px] ">
+    <div className="border border-black md:w-[400px] w-[362px] md:h-[552px] h-[600px]  rounded-[13.4px] ">
       {/* Top Review Section */}
       <div className="flex  md:justify-start justify-center gap-3 p-4">
         <h1 className="font-bold text-[12px] Montserrat">Excellent</h1>
@@ -46,7 +46,7 @@ const CheckoutCard = () => {
           </div>
         </div>
         {/* Add to Cart Button */}
-        <button className="flex items-center lato-text text-[20px] font-[400] justify-center gap-2 bg-[#F97316] text-white md:w-[476px] w-[322px] md:h-[53px] h-[44px] py-3 mt-4 rounded-[18px] ">
+        <button className="flex items-center lato-text text-[20px] font-[400] justify-center gap-2 bg-[#F97316] text-white md:w-[365px] w-[322px] md:h-[45px] h-[44px] py-3 mt-4 rounded-[18px] ">
           <FaShoppingCart />
           Add to Cart - $25.00
         </button>
@@ -88,7 +88,7 @@ const CheckoutCard = () => {
         </ul>
 
         {/* Features List */}
-        <ul className="mt-3 list-disc list-inside text-[11px] md:text-[14px] leading-6 tracking-[-0.6] md:w-[490px] w-[345px] flex justify-center md:h-[180px] h-[171px] flex-col">
+        <ul className="mt-3 lato-text list-disc list-inside text-[11px] md:text-[10px] leading-6  md:w-[490px] w-[345px] flex justify-center md:h-[180px]  flex-col">
           <h1 className=" font-[400] text-[#000000] ">
             About eSIMCard's Netherlands eSIM
           </h1>

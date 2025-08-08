@@ -21,7 +21,7 @@ function Section2() {
   ];
   return (
     <div>
-      <h1 className="bayon-text md:text-[64px] text-[24px]">
+      <h1 className="bayon-text md:text-[64px] text-[24px] md:text-left text-center md:mt-0 mt-4">
         Explore Data eSIMs You'll Enjoy
       </h1>
       <div className=" my-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 place-items-center gap-5">
