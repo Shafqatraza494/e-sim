@@ -2,6 +2,7 @@ import CheckOut from "@/Components/CheckOut/CheckOut";
 import Section1 from "@/Components/Country/Section1";
 import Section2 from "@/Components/Country/Section2";
 import Section3 from "@/Components/Country/Section3";
+import CustomerReviews from "@/Components/Customer Reviews/CustomerReviews";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Hero from "@/Components/Hero/Hero";
 import React from "react";
@@ -19,6 +20,7 @@ function page() {
         <Section1 />
         <Section2 />
         <Section3 />
+      <CustomerReviews />
       </div>
       <Banner />
     </div>

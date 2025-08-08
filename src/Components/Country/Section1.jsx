@@ -60,8 +60,8 @@ function Section1() {
           )}
         </ul>
       </div>
-      <div className="flex md:flex-row flex-col gap-10 justify-center md:justify-start items-center">
-        <div className="md:w-[700px] w-[360px] flex md:justify-start justify-center">
+      <div className="flex md:flex-row flex-col md:gap-10 justify-center md:justify-start md:items-start items-center">
+        <div className="md:w-[790px] w-[360px] flex md:justify-start justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-[100%]">
             {plans.map((plan, idx) => (
               <div

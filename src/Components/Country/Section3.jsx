@@ -12,7 +12,7 @@ function Section3() {
           Search for “Netherlands” and Pick your data plan.
         </p>
       </div>
-      <div className="flex md:flex-row flex-col md:gap-[60px] gap-5">
+      <div className="flex md:flex-row flex-col md:gap-[60px] gap-5  md:items-start items-center">
         <div className="w-[360px]">
           <div>
             <Image width={360} height={309} src="/Country/BuyData.svg" alt="" />
