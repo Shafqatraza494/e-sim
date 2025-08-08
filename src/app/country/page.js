@@ -4,6 +4,7 @@ import Section2 from "@/Components/Country/Section2";
 import Section3 from "@/Components/Country/Section3";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Hero from "@/Components/Hero/Hero";
+import Faq from "@/Components/Home/FAQSection/Faq";
 import React from "react";
 
 function page() {
@@ -21,6 +22,9 @@ function page() {
         <Section3 />
       </div>
       <Banner />
+      <div className="bg-[#EB662B0F]  px-14 flex flex-col justify-center my-10">
+        <Faq />
+      </div>
     </div>
   );
 }
