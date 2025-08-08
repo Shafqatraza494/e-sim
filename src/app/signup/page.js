@@ -45,8 +45,8 @@ const page = () => {
             </div>
           </div>
           <div className={styles.overlayText}>
-            <h1>Your only eSIM Solution</h1>
-            <p>Instant. Secure. Global</p>
+            <h1 className="lato-text">Your only eSIM Solution</h1>
+            <p className="lato-text">Instant. Secure. Global</p>
           </div>
         </div>
       </div>
@@ -54,15 +54,14 @@ const page = () => {
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
         {" "}
-       
-        <h1>Signup</h1>
-        <label className={styles.label}>Email</label>
+        <h1 className="text-center lato-text text-[43px] font-[700]">Signup</h1>
+        <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">Email</label>
         <input
           type="text"
           placeholder="ali@786gmail.com"
           className={styles.input1}
         />
-        <label className={styles.label}>Password</label>
+        <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">Password</label>
         <input
           type={showPassword ? "text" : "password"}
           placeholder="**********"
@@ -76,7 +75,7 @@ const page = () => {
             width={18}
           />
         </div>
-        <label className={styles.label}>Confirm password</label>
+        <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">Confirm password</label>
         <input
           type={ConfirmPassword ? "text" : "password"}
           placeholder="*********"
@@ -90,15 +89,15 @@ const page = () => {
             height={18}
           />
         </div>
-        <div className={styles.checkbox}>
+        <div className="flex flex-row justify-between mb-5">
           <div className={styles.rememberMe}>
             <input type="checkbox" />
-            <span>Remember me</span>
+            <span className="lato-text font-[500] text-[12]">Remember me</span>
           </div>
 
-          <button className={styles.signInBtn}>Signup</button>
+          <button className="bg-[#EB662B] text-white rounded-[18px] w-[162px] h-[44px] gap-[10px]">Signup</button>
         </div>
-        <h4 className={styles.forgot}>Forgot Password?</h4>
+        <h4 className="lato-text font-[500] text-[12.64px] text-[#3D3D3D] ">Forgot Password?</h4>
         <p className={styles.signup}>
           Don’t have an account? <a href="#">Sign In</a>
         </p>
@@ -110,7 +109,7 @@ const page = () => {
           </button>
           <button className={styles.btn}>
             {" "}
-            <Image className={styles.icon} src={apple} alt="" /> Continue with
+            <Image className={styles.icon1} src={apple} alt="" /> Continue with
             Apple
           </button>
         </div>

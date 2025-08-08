@@ -1,3 +1,4 @@
+import CheckOut from "@/Components/CheckOut/CheckOut";
 import Section1 from "@/Components/Country/Section1";
 import Section2 from "@/Components/Country/Section2";
 import Section3 from "@/Components/Country/Section3";

@@ -28,7 +28,7 @@ function Header() {
         <nav>
           <ul className="hidden lg:flex flex-row gap-[60px] items-center justify-center list-none">
             <li>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="/buy-esim">Buy eSIM</a>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import CheckOut from "../CheckOut/CheckOut";
 
 function Section1() {
   const [activeTab, setActiveTab] = useState("Standard Plan");
@@ -122,11 +123,11 @@ function Section1() {
                   {plan.network}
                 </div>
 
-                <div className="flex justify-between items-center">
-                  <button className="text-orange-500 border border-orange-400 px-3 py-1 rounded-full text-sm">
+                <div className="flex justify-between items-center gap-[7.5px]">
+                  <button className="text-orange-500 border border-orange-400 px-3 py-1 w-[136px] h-[33px]  rounded-[13.5px] text-sm">
                     View Details
                   </button>
-                  <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">
+                  <div className="bg-[#EB662B] text-white px-3 py-1 rounded-[13.5px] w-[80px] h-[33px] border-[0.75] text-sm">
                     ${plan.price.toFixed(2)}
                   </div>
                 </div>
@@ -134,7 +135,9 @@ function Section1() {
             ))}
           </div>
         </div>
-        <div className="md:w-[30%]"></div>
+        <div>
+          <CheckOut />
+        </div>
       </div>
     </div>
   );
