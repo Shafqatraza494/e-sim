@@ -25,7 +25,7 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function CustomerReviews() {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-6xl ">

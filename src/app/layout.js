@@ -1,4 +1,4 @@
-import AppLayout from "@/Components/AppLayout";
+import AppLayout from "@/app/AppLayout";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import { Lato } from "next/font/google";

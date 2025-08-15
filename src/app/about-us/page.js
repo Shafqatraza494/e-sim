@@ -1,4 +1,6 @@
 import Hero from "@/Components/Hero/Hero";
+import Faq from "@/Components/Home/FAQSection/Faq";
+import Grid from "@/Components/Home/Grid/Grid";
 import Image from "next/image";
 import React from "react";
 
@@ -66,7 +68,11 @@ function page() {
             </div>
           </div>
         </div>
+        <Grid />
       </div>
+      <div className="bg-[#EB662B0F]  px-14 flex flex-col justify-center my-10">
+        <Faq />
+      </div>{" "}
     </div>
   );
 }

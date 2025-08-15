@@ -1,15 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-function Section3() {
+function WorkingOfSim({ country }) {
   return (
     <div>
       <div className="my-10">
         <h1 className="bayon-text md:text-[64px] text-[24px] md:text-left text-center">
-          How does eSIM Netherlands Work?
+          How does eSIM {country && country} Work?
         </h1>
         <p className="lato-text md:text-[22px] text-[15px] md:text-left text-center">
-          Search for “Netherlands” and Pick your data plan.
+          {country && `Search for "${country}" and Pick your data plan.`}
         </p>
       </div>
       <div className="flex md:flex-row flex-col md:gap-[60px] gap-5  md:items-start items-center">
@@ -64,4 +64,4 @@ function Section3() {
   );
 }
 
-export default Section3;
+export default WorkingOfSim;

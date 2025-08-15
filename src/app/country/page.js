@@ -1,8 +1,8 @@
 import CheckOut from "@/Components/CheckOut/CheckOut";
 import Section1 from "@/Components/Country/Section1";
 import Section2 from "@/Components/Country/Section2";
-import Section3 from "@/Components/Country/Section3";
-import CustomerReviews from "@/Components/Customer Reviews/CustomerReviews";
+import WorkingOfSim from "@/Components/Country/WorkingOfSim";
+import CustomerReviews from "@/Components/Customer-Reviews/CustomerReviews";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Hero from "@/Components/Hero/Hero";
 import Faq from "@/Components/Home/FAQSection/Faq";
@@ -20,8 +20,8 @@ function page() {
       <div className="md:mx-14 mx-4 my-10">
         <Section1 />
         <Section2 />
-        <Section3 />
-      <CustomerReviews />
+        <WorkingOfSim country={"Netherlands"} />
+        <CustomerReviews />
       </div>
       <Banner />
       <div className="bg-[#EB662B0F]  px-14 flex flex-col justify-center my-10">
