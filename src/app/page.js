@@ -6,7 +6,7 @@ import Hero from "@/Components/Hero/Hero";
 import SimDetailsCard from "@/Components/GlobalUi/Cards/SimDetailsCard";
 import UsageDetailsCard from "@/Components/GlobalUi/Cards/UsageDetailsCard";
 import EsimSection from "@/Components/Home/EsimSection/EsimSection";
-import Grid from "@/Components/Home/Section3/Grid";
+import Grid from "@/Components/Home/Grid/Grid";
 import HeroHome from "@/Components/Home/hero/HeroHome";
 import Country from "@/Components/Home/Country/Country";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";

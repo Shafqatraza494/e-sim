@@ -26,7 +26,7 @@ function HeroHome() {
   const allCountries = [...countryData, ...countryData];
   return (
     <>
-      <div className="relative bg-[url('/image5.png')] md:rounded-[20px] bg-cover bg-center h-[765px] w-full flex items-center md:justify-center flex-col gap-20  pt-10">
+      <div className="relative bg-[url('/Home/bg-hero.jpg')] md:rounded-[20px] bg-cover bg-center h-[765px] w-full flex items-center md:justify-center flex-col gap-20  pt-10">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-peach-500 to-peach-0 mix-blend-hard-light z-0"></div>
 

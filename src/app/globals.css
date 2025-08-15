@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+button {
+  cursor: pointer;
+}
+
 body {
   font-family: var(--font-open-sans), sans-serif;
   margin: 0;
@@ -9,6 +13,44 @@ body {
 .lato-text {
   font-family: var(--font-lato), sans-serif;
 }
+
 .bayon-text {
   font-family: var(--font-bayon), sans-serif;
+}
+.blog-content h1 {
+  font-family: "Bayon", sans-serif;
+  font-size: 64px;
+  color: #eb662b;
+}
+@media (max-width: 768px) {
+  .blog-content h1 {
+    font-size: 24px;
+  }
+}
+
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  font-family: "Lato", sans-serif;
+  font-size: 26px;
+  color: #eb662b;
+}
+
+.blog-content p {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-left: 1.5rem;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid #eb662b;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
 }
