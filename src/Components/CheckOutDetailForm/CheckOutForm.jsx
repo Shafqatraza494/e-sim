@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const CheckOut = () => {
+const CheckOutForm = () => {
   return (
     <>
       <div className="flex flex-row  gap-20">
@@ -180,12 +180,65 @@ const CheckOut = () => {
           </div>
         </div>
         <div className="w-[500px]">
-          <div className="py-[11px] px-[17px] bg-[#EB662B] text-white flex flex-row justify-between items-center rounded-[20px]">
-            <div className=" flex flex-row justify-between items-center">
-              <Image width={32} height={32} src="/checkout/dollar.svg" alt="" />
-              <h1 className="lato-text text-[20px]">Your Available Balance</h1>
+          <div>
+            <div className="w-[580px] h-[556px] rounded-[13.43] border-[1.34px] p-8">
+              <h1 className="text-center lato-text text-[43.33px] text-[#121212] font-bold">
+                Login/Signup
+              </h1>
+              <div className="flex flex-col">
+                <label
+                  className="lato-text font-[400] text-[14.44px] text-[#121212]"
+                  htmlFor=""
+                >
+                  Full Name
+                </label>
+                <input
+                  className="h-[44.28px] rounded-[10.83] bg-[#F5F7FA] mt-3 lato-text font-[400] text-[12.64px] text-[#6B6B6B] px-5"
+                  type="text"
+                  placeholder="Example"
+                  name=""
+                  id=""
+                />
+              </div>
+              <div className="flex flex-col">
+                <label
+                  className="lato-text font-[400] text-[14.44px] mt-4 text-[#121212]"
+                  htmlFor=""
+                >
+                  Email
+                </label>
+                <input
+                  className="h-[44.28px] relative rounded-[10.83] bg-[#F5F7FA] mt-3 lato-text font-[400] text-[12.64px] text-[#6B6B6B] px-5"
+                  type="text"
+                  placeholder="example@123.com"
+                  name=""
+                  id=""
+                />
+                <Image className="absolute right-20 top-91.5 " height={18.06} width={18.06} src="/hide.png" alt="" />
+              </div>
+              <div className="flex flex-row justify-center mt-15">
+                <button className="h-[44px] rounded-[18px] bg-[#EB662B] text-[#FFFFFF] lato-text font-[400px] text-[20px] w-[231px] ">
+                  Continue as Guest
+                </button>
+              </div>
+              <div className="flex flex-row justify-center gap-5">
+                <button className="w-[220px] h-[48px] rounded-[12px] bg-[#FFFFFF] border-[1px] mt-15 border-[#DCDBDD] flex flex-row items-center gap-2 p-2 ">
+                  {" "}
+                  <Image width={15} height={15} src="/Google.logo.svg" alt="" />
+                  Continue with Google
+                </button>
+                <button className="w-[220px] h-[48px] rounded-[12px] bg-[#FFFFFF] border-[1px] mt-15 border-[#DCDBDD] flex flex-row items-center gap-2 p-2 ">
+                  {" "}
+                  <Image
+                    height={19.63}
+                    width={16}
+                    src="/apple.logo.svg"
+                    alt=""
+                  />
+                  Continue with Apple
+                </button>
+              </div>
             </div>
-            <h1 className="lato-text text-[24px]">$12.99</h1>
           </div>
           <div className="flex flex-row justify-between w-[314px] items-center my-7">
             <Image
@@ -246,4 +299,4 @@ const CheckOut = () => {
   );
 };
 
-export default CheckOut;
+export default CheckOutForm;
