@@ -45,7 +45,6 @@ export default function AllPosts() {
           ))}
         </div>
 
-        {/* Pagination */}
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

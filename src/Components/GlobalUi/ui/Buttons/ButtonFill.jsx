@@ -3,14 +3,9 @@
 import { useCart } from "@/Context/CartContext";
 import React from "react";
 
-function ButtonFill({ text, product }) {
-  const { addToCart } = useCart();
-
+function ButtonFill({ text, onClick }) {
   return (
-    <button
-      onClick={() => addToCart(product)}
-      className="bg-[#EB662B] py-2 px-8 rounded-xl"
-    >
+    <button className="bg-[#EB662B] py-2 px-8 rounded-xl" onClick={onClick}>
       {text}
     </button>
   );
