@@ -54,3 +54,8 @@ body {
   font-style: italic;
   color: #555;
 }
+@keyframes shimmer {
+  100% {
+    transform: translateX(240%);
+  }
+}
