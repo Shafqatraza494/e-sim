@@ -11,8 +11,10 @@ import HeroHome from "@/Components/Home/hero/HeroHome";
 import Country from "@/Components/Home/Country/Country";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Faq from "@/Components/Home/FAQSection/Faq";
+import { useGuest } from "@/Context/GuestContext";
 
 function page() {
+
   return (
     <>
       <div className="md:mx-4 mx-0">

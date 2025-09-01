@@ -1,15 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
-const CheckoutCard = () => {
-  const [activeTab, setActiveTab] = useState("Data");
+const CheckoutCard = ({ country, plan, id }) => {
+  const [activeTab, setActiveTab] = useState("Features");
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    setQuantity(1);
+    console.log("hwlellele", plan);
+  }, [plan]);
 
   return (
     <div className="border border-black md:w-[400px] w-[362px] md:h-[552px] h-[600px]  rounded-[13.4px] ">
-      {/* Top Review Section */}
       <div className="flex  md:justify-start justify-center gap-3 p-4">
         <h1 className="font-bold text-[12px] Montserrat">Excellent</h1>
         <p className="text-[12px] Montserrat">
@@ -24,33 +29,47 @@ const CheckoutCard = () => {
         <h1 className="font-bold text-[12px] Montserrat">Trustpilot</h1>
       </div>
 
-      {/* Divider */}
       <div className="border-t border-[#D8D8D8] mt-2 "></div>
 
       <div className=" p-4">
         {" "}
-        {/* Product Section */}
         <div className="flex items-center gap-3 mt-4 md:justify-start justify-center">
-          <Image src="/Country/flag.svg" alt="flag" width={36} height={36} />
-          <h2 className="font-bold Montserrat">Netherlands Unlimited</h2>
+          <Image
+            src={plan?.banner || "/Country/country.svg"}
+            alt="flag"
+            width={36}
+            height={36}
+          />
+          <h2 className="font-bold Montserrat">
+            {plan?.name || "Select Plan"}
+          </h2>
         </div>
-        {/* Quantity */}
         <div className="flex gap-4 mt-1 justify-between w-[98%] items-center">
           <p className="mt-3">Quantity</p>
           <div className="border-1 border-gray-300 rounded-[12px]  flex flex-row justify-center items-center">
-            <button className="px-2">−</button>
-            <button className=" border-l-1 border-r-1 border-gray-300 h-[20px] px-2">
-              1
+            <button
+              className="px-2"
+              onClick={() => {
+                if (quantity > 1) {
+                  setQuantity(quantity - 1);
+                }
+              }}
+            >
+              -
             </button>
-            <button className="px-2">+</button>
+            <button className=" border-l-1 border-r-1 border-gray-300 h-[20px] px-2">
+              {quantity}
+            </button>
+            <button className="px-2" onClick={() => setQuantity(quantity + 1)}>
+              +
+            </button>
           </div>
         </div>
-        {/* Add to Cart Button */}
         <button className="flex items-center lato-text text-[20px] font-[400] justify-center gap-2 bg-[#F97316] text-white md:w-[365px] w-[322px] md:h-[45px] h-[44px] py-3 mt-4 rounded-[18px] ">
           <FaShoppingCart />
-          Add to Cart - $25.00
+          Add to Cart - $
+          {plan?.price ? (plan?.price * quantity).toFixed(2) : 0.0}
         </button>
-        {/* eSIM Check */}
         <div className="flex items-center gap-2 mt-3">
           <Image
             className="w-[14px] "
@@ -88,7 +107,7 @@ const CheckoutCard = () => {
         </ul>
 
         {/* Features List */}
-        <ul className="mt-3 lato-text list-disc list-inside text-[11px] md:text-[10px] leading-6  md:w-[490px] w-[345px] flex justify-center md:h-[180px]  flex-col">
+        <ul className="mt-3 lato-text list-disc list-inside text-[11px] md:text-[10px] leading-6   flex justify-center md:h-[180px]  flex-col">
           <h1 className=" font-[400] text-[#000000] ">
             About eSIMCard's Netherlands eSIM
           </h1>

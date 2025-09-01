@@ -19,7 +19,6 @@ export default function CartDrawer() {
 
   const handleContinueShopping = () => {
     closeCart();
-    router.push("/");
   };
 
   const subtotal = cartItems.reduce(
@@ -31,7 +30,7 @@ export default function CartDrawer() {
 
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-[100vw] max-w-sm bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 right-0 h-full w-[300px] max-w-sm bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
         isCartOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -43,7 +42,6 @@ export default function CartDrawer() {
         </button>
       </div>
 
-      {/* Body */}
       <div className="flex flex-col justify-between h-full">
         <div className="flex flex-col flex-1 px-6 py-4 overflow-y-auto">
           {cartItems.length === 0 ? (
@@ -56,11 +54,10 @@ export default function CartDrawer() {
                   Have an account? Log in to check out faster.
                 </p>
               </div>
-              <div className="mb-8 h-[50%] flex justify-center">
-                {/* Cart Icon */}
+              <div className="mb-8 h-[100%] flex justify-center items-center">
                 <Image
-                  width={200}
-                  height={200}
+                  width={100}
+                  height={100}
                   src="/RightCart/Cart.png"
                   alt=""
                 />
@@ -171,9 +168,9 @@ export default function CartDrawer() {
           <div className="p-4 border-t mb-14">
             <button
               onClick={handleContinueShopping}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 transition"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-1  rounded-md font-medium flex items-center justify-center gap-2 transition"
             >
-              <span className="text-lg">&#x21A9;</span> Continue shopping
+              <span className="text-sm">&#x21A9;</span> Continue shopping
             </button>
           </div>
         )}

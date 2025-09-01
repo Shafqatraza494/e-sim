@@ -4,21 +4,39 @@ import { apiClient } from "@/lib/apiClient";
 export function useMutationRequest(method, url, options = {}) {
   return useMutation({
     mutationFn: async (payload) => {
-      console.log("[useMutationRequest] Method:", method);
-      console.log("[useMutationRequest] URL:", url);
-      console.log("[useMutationRequest] Payload:", payload);
+      const lowerMethod = method.toLowerCase();
+      const token = localStorage.getItem("auth_token");
 
-      if (method.toLowerCase() === "get" || method.toLowerCase() === "delete") {
-        const { data } = await apiClient[method.toLowerCase()](url, {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      let response;
+
+      if (lowerMethod === "get" || lowerMethod === "delete") {
+        response = await apiClient[lowerMethod](url, {
           params: payload,
+          ...config,
         });
-        return data;
       } else {
-        const { data } = await apiClient[method.toLowerCase()](url, payload);
-        return data;
+        if (payload !== undefined) {
+          response = await apiClient[lowerMethod](url, payload, config);
+        } else {
+          response = await apiClient[lowerMethod](url, config);
+        }
       }
+
+      const data = response.data;
+
+      // 🔥 Treat backend `status: false` as an error
+      if (data && data.status === false) {
+        throw new Error(data.message || "Request failed");
+      }
+
+      return data;
     },
     ...options,
   });
 }
-  

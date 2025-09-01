@@ -1,24 +1,20 @@
 "use client";
 
-import { LoaderLink } from "@/Context/LoaderLink";
 import { useFetch } from "@/Hooks/useFetch";
 import Image from "next/image";
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
 const BASE_URL = "https://platform.defymobile.com/";
 
 function RecentBlog() {
   const { data, isLoading, isError } = useFetch("get", "/blog");
-  const [activeTab, setActiveTab] = useState("All");
+
+  const [activeTab, setActiveTab] = useState("eSIM Technology");
 
   const blogs = data?.blogs?.data ?? [];
-  const categories = data?.categories ?? [];
-
-  const filteredBlogs = useMemo(() => {
-    if (activeTab === "All") return blogs;
-    return blogs.filter((blog) => blog.category.name === activeTab);
-  }, [blogs, activeTab]);
+  console.log("blogs data filterd", blogs);
+  console.log("blogs data lslsl", data);
 
   if (isLoading) {
     return (
@@ -26,6 +22,7 @@ function RecentBlog() {
         <h1 className="lato-text md:text-[27px] text-[20px] text-left md:pb-10 pb-5">
           Recent blog posts
         </h1>
+
         <div className="flex md:flex-row flex-col gap-10">
           <div className="flex flex-col gap-6 md:w-[500px]">
             <Skeleton height={300} borderRadius={12} />
@@ -57,26 +54,16 @@ function RecentBlog() {
 
   return (
     <>
-      <div className="md:my-10 my-4 flex justify-center items-center w-[100%]">
-        <ul className="hidden md:flex flex-row items-center mt-10 text-[22px] align-middle gap-6">
-          <li
-            className={`cursor-pointer ${
-              activeTab === "All"
-                ? "border-b-2 border-[#EB662B] text-[#EB662B] font-[700]"
-                : "text-black font-[400]"
-            }`}
-            onClick={() => setActiveTab("All")}
-          >
-            All
-          </li>
-          {categories.map((tab) => (
+      <div className="md:my-10 my-4 flex justify-center items-center w-[100%] ">
+        <ul className="hidden md:flex flex-row items-center mt-10 text-[22px] align-middle">
+          {data?.categories?.map((tab, index) => (
             <li
-              key={tab.id}
+              key={index}
               onClick={() => setActiveTab(tab.name)}
-              className={`cursor-pointer ${
+              className={`cursor-pointer border-b-3 ${
                 activeTab === tab.name
-                  ? "border-b-2 border-[#EB662B] text-[#EB662B] font-[700]"
-                  : "text-black font-[400]"
+                  ? "w-[200px] border-[#EB662B] text-[#EB662B] font-[700]"
+                  : "w-[200px] text-black font-[400]"
               }`}
             >
               {tab.name}
@@ -85,43 +72,34 @@ function RecentBlog() {
         </ul>
       </div>
 
-      {/* Blogs */}
       <div className="mb-10">
         <h1 className="lato-text md:text-[27px] text-[20px] text-left md:pb-10 pb-5">
           Recent blog posts
         </h1>
-
         <div className="flex md:flex-row flex-col gap-10">
-          {filteredBlogs.length > 0 && (
+          {blogs.length > 0 && (
             <div className="flex flex-col gap-10 md:w-[500px] text-left">
               <Image
                 width={600}
                 height={300}
-                src={`${BASE_URL}${filteredBlogs[0].image}`}
-                alt={filteredBlogs[0].name}
+                src={`${BASE_URL}${blogs[0].image}`}
+                alt={blogs[0].name}
               />
               <div className="flex flex-col gap-4">
                 <p className="lato-text text-[15px] text-[#EB662B]">
-                  {filteredBlogs[0].author_name} •{" "}
-                  {new Date(filteredBlogs[0].created_at).toLocaleDateString(
-                    "en-US",
-                    {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric",
-                    }
-                  )}
+                  {blogs[0].author_name} •{" "}
+                  {new Date(blogs[0].created_at).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
                 </p>
-
-                <div className="flex flex-row justify-between items-center">
-                  {/* ✅ Title wrapped with LoaderLink */}
-                  <LoaderLink
-                    href={`/blog/details-page/${filteredBlogs[0].slug}`}
-                  >
-                    <h1 className="lato-text md:text-[27px] text-[20px] md:text-left text-center cursor-pointer">
-                      {filteredBlogs[0].name}
+                <div className="flex flex-row justify-between">
+                  <button>
+                    <h1 className="lato-text md:text-[27px] text-[20px] md:text-left text-center">
+                      {blogs[0].name}
                     </h1>
-                  </LoaderLink>
+                  </button>
                   <Image
                     width={27}
                     height={27}
@@ -129,17 +107,15 @@ function RecentBlog() {
                     alt="arrow"
                   />
                 </div>
-
                 <p className="lato-text md:text-[18px] text-[#667085]">
-                  {filteredBlogs[0].sub_content}
+                  {blogs[0].sub_content}
                 </p>
               </div>
             </div>
           )}
 
-          {/* Side blogs */}
           <div className="md:w-[600px] flex flex-col gap-10">
-            {filteredBlogs.slice(1, 3).map((blog) => (
+            {blogs.slice(1, 3).map((blog) => (
               <div key={blog.id} className="flex md:flex-row flex-col gap-5">
                 <Image
                   className="md:w-[350px] w-[100%]"
@@ -157,14 +133,11 @@ function RecentBlog() {
                       year: "numeric",
                     })}
                   </p>
-
-                  {/* ✅ Title wrapped with LoaderLink */}
-                  <LoaderLink href={`/blog/details-page/${blog.slug}`}>
-                    <h1 className="lato-text text-[20px] text-left cursor-pointer">
+                  <button>
+                    <h1 className="lato-text text-[20px] text-left">
                       {blog.name}
                     </h1>
-                  </LoaderLink>
-
+                  </button>
                   <p className="lato-text md:text-[18px] text-left text-[#667085]">
                     {blog.sub_content}
                   </p>
@@ -179,3 +152,4 @@ function RecentBlog() {
 }
 
 export default RecentBlog;
+data is recievd from api like above i showed you make recent posts changes on category switch also add id as slug in title click as LoaderLink

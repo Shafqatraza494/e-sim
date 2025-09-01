@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function Section2() {
+function RandomCountries() {
   const countryCards = [
     {
       country: "Austria",
@@ -51,4 +51,4 @@ function Section2() {
   );
 }
 
-export default Section2;
+export default RandomCountries;

@@ -8,7 +8,7 @@
 .navigation {
   display: flex;
   flex-direction: row;
-  gap: 60px;
+  gap: 10px;
 }
 .logo p {
   color: #eb662b;
