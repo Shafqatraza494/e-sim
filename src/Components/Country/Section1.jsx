@@ -3,6 +3,9 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import CheckOut from "../CheckOut/CheckOut";
+import CheckOutDetails from "../CheckOutDetails/CheckOutDetails";
+import CheckOutForm from "../CheckOutDetailForm/CheckOutForm";
+import CheckoutCard from "../CheckOut/CheckOutCard";
 
 function Section1() {
   const [activeTab, setActiveTab] = useState("Standard Plan");
@@ -18,7 +21,6 @@ function Section1() {
       network: "5G Available",
       price: 2.23,
     },
-    // repeat 8 more (copy-paste or duplicate)
     ...Array(8).fill({
       data: "1 GB",
       days: "7 Days",
@@ -136,7 +138,7 @@ function Section1() {
           </div>
         </div>
         <div>
-          <CheckOut />
+          <CheckoutCard />
         </div>
       </div>
     </div>

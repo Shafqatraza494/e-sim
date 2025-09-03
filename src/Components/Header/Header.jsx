@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import Image from "next/image";
 import { useCart } from "@/Context/CartContext";
+import ButtonFill from "../GlobalUi/ui/Buttons/ButtonFill";
 
 function Header() {
   const [langOpen, setLangOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const { toggleCart } = useCart();
 
   const languages = [
@@ -14,6 +16,13 @@ function Header() {
     { code: "fr", label: "Français" },
     { code: "jp", label: "日本語" },
   ];
+
+  useEffect(() => {
+    const userLoggedIn = localStorage.getItem("token");
+    if (userLoggedIn) {
+      setLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div className="flex flex-row justify-between items-center md:px-[60px] px-[25px] py-[20px]">
@@ -50,16 +59,30 @@ function Header() {
             />
           </button>
 
-          <a href="/signup">
-            <button className={`${styles.registerBtn} cursor-pointer`}>
-              Register
-            </button>
-          </a>
-          <a href="/login">
-            <button className={`${styles.loginBtn} cursor-pointer`}>
-              Login
-            </button>
-          </a>
+          {!loggedIn ? (
+            <>
+              <a href="/signup">
+                <button className={`${styles.registerBtn} cursor-pointer`}>
+                  Register
+                </button>
+              </a>
+              <a href="/login">
+                <button className={`${styles.loginBtn} cursor-pointer`}>
+                  Login
+                </button>
+              </a>
+            </>
+          ) : (
+            <div className="text-white">
+              <ButtonFill
+                text={"Logout"}
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setLoggedIn(false);
+                }}
+              />
+            </div>
+          )}
 
           <div className="relative">
             <button
@@ -87,13 +110,12 @@ function Header() {
         </div>
 
         <div className="flex md:hidden flex-row justify-center align-middle gap-10">
-          {/* Optional: mobile cart icon can also call toggleCart */}
           <Image
             src="/Cart.png"
             alt=""
             width={35}
             height={10}
-            onClick={toggleCart} // 👈 optional
+            onClick={toggleCart}
             className="cursor-pointer"
           />
           <Image src="/pfp.png" alt="" width={35} height={10} />

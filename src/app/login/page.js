@@ -9,13 +9,14 @@ import shape from "../../../public/Images/Star.jpg";
 import white from "../../../public/Images/white-shape.png";
 import styles from "./Login.module.css";
 import { useMutationRequest } from "@/Hooks/useMutationRequest";
+import Skeleton from "react-loading-skeleton";
 
 const page = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [username, setUsername] = useState("emilys");
-  const [password, setPassword] = useState("emilyspass");
+  const [email, setEmail] = useState("8365p@powerscrews.com");
+  const [password, setPassword] = useState("11223344");
 
-  const loginMutation = useMutationRequest("post", "/auth/login");
+  const loginMutation = useMutationRequest("post", "/login/");
 
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
@@ -24,12 +25,12 @@ const page = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     loginMutation.mutate(
-
-      { username, password },
+      { email, password },
       {
-
         onSuccess: (data) => {
-          console.log("Logged in! Token:", data.accessToken);
+          console.log("Logged in! Token:", data);
+
+          localStorage.setItem("token", data.access_token);
         },
         onError: (error) => {
           console.error("Login failed", error);
@@ -37,7 +38,7 @@ const page = () => {
       }
     );
 
-    console.log("Username:", username);
+    console.log("email:", email);
     console.log("Password:", password);
   };
   return (
@@ -71,78 +72,84 @@ const page = () => {
 
       {/* Right Login Form Panel */}
       <div className={styles.rightPanel}>
-        <form action="" onSubmit={handleLogin}>
-          <h1 className="lato-text font-[700] text-[43px] flex flex-row justify-center items-center">
-            Login
-          </h1>
+        <div>
+          {/* ✅ Skeleton when loading */}
+          <form onSubmit={handleLogin}>
+            <h1 className="lato-text font-[700] text-[43px] flex justify-center">
+              Login
+            </h1>
 
-          <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
-            Email
-          </label>
-          <input
-            type="text"
-            placeholder="Example@123"
-            className={styles.input1}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-
-          <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
-            Password
-          </label>
-          <div className={styles.inputWrapper}>
+            <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
+              Email
+            </label>
             <input
-              type={showPassword ? "text" : "password"}
-              placeholder="*********"
+              type="text"
+              placeholder="Example@123"
               className={styles.input1}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <div className={styles.imgeye} onClick={togglePassword}>
-              <Image
-                src={showPassword ? "/hide.png" : "/view.png"}
-                alt="Toggle password"
-                height={18}
-                width={18}
+
+            <label className="lato-text font-[400] text-[14px] text-[#121212] mb-2">
+              Password
+            </label>
+            <div className={styles.inputWrapper}>
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="*********"
+                className={styles.input1}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
+              <div className={styles.imgeye} onClick={togglePassword}>
+                <Image
+                  src={showPassword ? "/hide.png" : "/view.png"}
+                  alt="Toggle password"
+                  height={18}
+                  width={18}
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-row justify-between mb-5">
-            <div className={styles.rememberMe}>
-              <input type="checkbox" />
-              <span className="lato-text font-[500] text-[12px] text-[#3D3D3D] ">
-                Remember me
-              </span>
+            <div className="flex flex-row justify-between mb-5">
+              <div className={styles.rememberMe}>
+                <input type="checkbox" />
+                <span className="lato-text font-[500] text-[12px] text-[#3D3D3D]">
+                  Remember me
+                </span>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-[#EB662B] rounded-[18px] h-[44px] w-[162px] text-white"
+              >
+                Sign In
+              </button>
             </div>
+          </form>
 
-            <button
-              type="submit"
-              className="bg-[#EB662B] rounded-[18px] h-[44px] w-[162px] text-white"
-              disabled={loginMutation.isLoading}
-            >
-              {loginMutation.isLoading ? "Signing In..." : "Sign In"}
-            </button>
-          </div>
-        </form>
+          {!loginMutation.isLoading && (
+            <>
+              <h4 className="lato-text font-[400] text-[12px] ">
+                Forgot Password?
+              </h4>
 
-        <h4 className="lato-text font-[400] text-[12px] ">Forgot Password?</h4>
+              <p className={styles.signup}>
+                Don’t have an account? <a href="#">Signup</a>
+              </p>
 
-        <p className={styles.signup}>
-          Don’t have an account? <a href="#">Signup</a>
-        </p>
-
-        <div className={styles.btn2}>
-          <button className={styles.btn}>
-            {" "}
-            <Image width={15} height={15} src={google} alt="" /> Continue with
-            Google
-          </button>
-          <button className={styles.btn}>
-            {" "}
-            <Image width={16} height={19} src={apple} alt="" /> Continue with
-            Apple
-          </button>
+              <div className={styles.btn2}>
+                <button className={styles.btn}>
+                  <Image width={15} height={15} src={google} alt="" /> Continue
+                  with Google
+                </button>
+                <button className={styles.btn}>
+                  <Image width={16} height={19} src={apple} alt="" /> Continue
+                  with Apple
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
