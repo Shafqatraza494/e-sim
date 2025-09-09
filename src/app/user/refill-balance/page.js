@@ -1,17 +1,33 @@
+"use client";
+
 import React from "react";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import ButtonFill from "@/Components/GlobalUi/ui/Buttons/ButtonFill";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
+import { useFetch } from "@/Hooks/useFetch";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-function page() {
+function Page() {
+  const { data, isLoading, isError } = useFetch("get", "/user/credits");
+
+  const balance = data?.data?.balance ?? 0;
+
   return (
     <div>
-      {/* //////////////////////////////////////hero/////////////////////////////////////// */}
+      {/* Balance Section */}
       <div className="flex flex-col justify-center items-center mb-6 text-white lg:mx-4 lg:h-[297px] opacity-100 lg:rounded-[20px] bg-gradient-to-b from-[#FF9B65] to-[rgba(255,155,101,0)]">
-        <div className="flex flex-col  justify-center items-center text-center my-10 w-[80%]">
-          <div className="lato-text font-normal text-black p-2 bg-[#FFFFFF80] border-1 border-black rounded-[20px]">
-            Current Balance : <span className="font-bold">$2.38</span>
-          </div>
+        <div className="flex flex-col justify-center items-center text-center my-10 w-[80%]">
+          {isLoading ? (
+            <Skeleton width={180} height={43} borderRadius={25} />
+          ) : (
+            <>
+              <div className="lato-text font-normal text-black p-2 bg-[#FFFFFF80] border-1 border-black rounded-[20px]">
+                Current Balance :{" "}
+                <span className="font-bold">${balance.toFixed(2)}</span>
+              </div>
+            </>
+          )}
           <h1 className="bayon-text lg:text-[100px] text-[40px] text-center align-middle pt-4">
             Refill
           </h1>
@@ -24,13 +40,12 @@ function page() {
           />
           <button className="w-[183px] p-2 bg-[#EB662B] rounded-[20px] border-1 border-black flex flex-row items-center justify-center">
             Add Amount{" "}
-            <ChevronRightIcon className="w-[20px] h-[20px] text-white " />
+            <ChevronRightIcon className="w-[20px] h-[20px] text-white" />
           </button>
         </div>
       </div>
 
-      {/* ////////////////////////////////body/////////////////////////////////////////// */}
-
+      {/* Contact Section */}
       <div className="lg:mx-14 flex md:flex-row flex-col md:justify-between md:text-left text-center items-center md:mt-10">
         <div>
           <h1 className="md:text-[64px] text-[24px] bayon-text">
@@ -44,6 +59,8 @@ function page() {
           <ButtonFill text={"Contact Us"} />
         </div>
       </div>
+
+      {/* Banner Section */}
       <div className="my-20">
         <Banner />
       </div>
@@ -51,4 +68,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

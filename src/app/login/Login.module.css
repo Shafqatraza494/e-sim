@@ -155,16 +155,17 @@
   gap: 6px;
 }
 
-.signup {
+.login {
   text-align: center;
   font-size: 14px;
   margin: 20px 0;
+  font-size: 12px;
 }
 
-.signup a {
+.login a {
   color: black;
-  text-decoration: underline;
   text-underline-offset: 4px;
+  text-decoration: underline;
 }
 
 /* ---------- Social Buttons ---------- */
