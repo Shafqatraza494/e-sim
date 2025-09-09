@@ -1,4 +1,3 @@
-import { blogPosts } from "@/Components/Blog/allposts/blogData";
 import BlogPost from "@/Components/Blog/allposts/BlogPost";
 import Banner from "@/Components/GlobalUi/DownloadBanner/Banner";
 import Hero from "@/Components/Hero/Hero";
@@ -76,7 +75,6 @@ function page() {
                   <h1 className="bayon-text text-[25px]">{card.heading}</h1>
                 </div>
                 <div className="p-4">
-                  {/* do not change this image */}
                   <Image
                     width={20}
                     height={20}

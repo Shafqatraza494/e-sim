@@ -9,6 +9,7 @@ import { AuthProvider } from "@/Context/AuthContext";
 import { GuestProvider } from "@/Context/GuestContext";
 import { LoaderProvider } from "@/Context/LoaderLink";
 import ToastProvider from "@/lib/ToastProvider";
+import { CartProvider } from "@/Context/CartContext";
 
 export default function AppLayout({ children }) {
   const pathname = usePathname();
@@ -16,17 +17,19 @@ export default function AppLayout({ children }) {
 
   return (
     <Providers>
-      <LoaderProvider>
-        <AuthProvider>
-          <GuestProvider>
-            <Header />
-            <CartDrawer />
-            <main>{children}</main>
-            {!hideLayout && <Footer />}
-            <ToastProvider />
-          </GuestProvider>
-        </AuthProvider>
-      </LoaderProvider>
+      <AuthProvider>
+        <CartProvider>
+          <LoaderProvider>
+            <GuestProvider>
+              <Header />
+              <CartDrawer />
+              <main>{children}</main>
+              {!hideLayout && <Footer />}
+              <ToastProvider />
+            </GuestProvider>
+          </LoaderProvider>
+        </CartProvider>
+      </AuthProvider>
     </Providers>
   );
 }

@@ -2,91 +2,62 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import CheckoutCard from "../CheckOut/CheckOutCard";
+import CheckoutCard from "../../CheckOut/CheckOutCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useGuest } from "@/Context/GuestContext";
-import PkgDetails from "../PkgDetails/PkgDetails";
+import PkgDetails from "../../PkgDetails/PkgDetails";
 
-function ShowRegionPkg({ slug }) {
-  const { useRegionBySlug } = useGuest();
-  const { data, isLoading, isError } = useRegionBySlug(slug);
+function ShowGlobalPkg() {
+  const { globalPackages, isGlobalPackages, isGlobalPackagesError } =
+    useGuest();
 
-  const [activeTab, setActiveTab] = useState("Standard Plan");
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(9);
 
-  const region = data?.region;
-  const packages = data?.data;
+  const packages = globalPackages?.data ?? [];
 
-  if (isLoading) {
+
+  if (isGlobalPackages) {
     return (
       <div>
-        {" "}
         <h1>
-          {" "}
-          <Skeleton width={300} height={40} />{" "}
-        </h1>{" "}
+          <Skeleton width={300} height={40} />
+        </h1>
         <p className="mt-2">
-          {" "}
-          <Skeleton width={400} height={20} />{" "}
-        </p>{" "}
-        <div className="my-10 flex gap-4">
-          {" "}
-          <Skeleton width={150} height={30} />{" "}
-          <Skeleton width={150} height={30} />{" "}
-          <Skeleton width={150} height={30} />{" "}
-        </div>{" "}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-full">
-          {" "}
+          <Skeleton width={400} height={20} />
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-full mt-10">
           {Array.from({ length: 6 }).map((_, idx) => (
             <div key={idx} className="p-4 border rounded-xl shadow-md">
-              {" "}
-              <Skeleton height={20} width={120} className="mb-2" />{" "}
-              <Skeleton height={15} width={100} className="mb-2" />{" "}
-              <Skeleton height={20} width={80} className="mb-2" />{" "}
-              <Skeleton height={25} width={60} />{" "}
+              <Skeleton height={20} width={120} className="mb-2" />
+              <Skeleton height={15} width={100} className="mb-2" />
+              <Skeleton height={20} width={80} className="mb-2" />
+              <Skeleton height={25} width={60} />
             </div>
-          ))}{" "}
-        </div>{" "}
-        <div>
-          {" "}
-          <Skeleton height={200} width={300} />{" "}
-        </div>{" "}
+          ))}
+        </div>
       </div>
     );
   }
 
-  if (!packages || packages.length === 0) {
-    return <p>No packages available for this region.</p>;
-  }
-
-  const filteredPackages = packages.filter((pkg) => {
-    if (activeTab === "Standard Plan") {
-      return pkg.package_type === "DATA-ONLY" && !pkg.unlimited;
-    }
-    if (activeTab === "Unlimited Data") {
-      return pkg.unlimited === true;
-    }
-    if (activeTab === "Data/Voice") {
-      return pkg.voice_quantity > 0;
-    }
-    return true;
-  });
+  if (isGlobalPackagesError) return <p>Failed to load packages.</p>;
+  if (!packages.length) return <p>No global packages available.</p>;
 
   return (
     <div>
-      {isModalOpen && (
+      {/* Modal */}
+      {isModalOpen && selectedPlan && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="bg-white rounded-2xl p-6 shadow-lg relative">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-7 right-7 text-black-600 hover:text-black"
+              className="absolute top-7 right-7 text-black hover:text-gray-700"
             >
               ✕
             </button>
-
             <PkgDetails
               pkg={selectedPlan}
               onClose={() => setIsModalOpen(false)}
@@ -95,44 +66,20 @@ function ShowRegionPkg({ slug }) {
         </div>
       )}
 
-      <div>
-        <h1 className="bayon-text md:text-[64px] text-[24px] md:text-left text-center">
-          pick the best esim for {region?.local_name || "your region"}
-        </h1>
-        <p className="lato-text md:text-[22px] text-[15px] md:text-left text-center">
-          Whether you need a prepaid eSIM for a weekend getaway or a global eSIM
-          for multiple borders
-        </p>
-      </div>
+      {/* Heading */}
+      <h1 className="bayon-text md:text-[64px] text-[24px] md:text-left text-center">
+        Pick the best Global Package
+      </h1>
+      <p className="lato-text md:text-[22px] text-[15px] md:text-left text-center">
+        Whether you need a prepaid eSIM for a short trip or a global Package for
+        multiple borders.
+      </p>
 
-      <div className="my-10">
-        <ul className="hidden md:flex flex-row items-center mt-10 text-[22px] align-middle">
-          {["Standard Plan", "Unlimited Data", "Data/Voice"].map(
-            (tab, index) => (
-              <li
-                key={index}
-                onClick={() => {
-                  setActiveTab(tab);
-                  setSelectedIndex(null);
-                  setSelectedPlan(null);
-                }}
-                className={`cursor-pointer border-b-3 ${
-                  activeTab === tab
-                    ? "w-[200px] border-[#EB662B] text-[#EB662B] font-[700]"
-                    : "w-[200px] text-black font-[400]"
-                }`}
-              >
-                {tab}
-              </li>
-            )
-          )}
-        </ul>
-      </div>
-
-      <div className="flex md:flex-row flex-col md:gap-10 justify-center md:justify-start md:items-start items-center">
+      {/* Packages */}
+      <div className="flex md:flex-row flex-col md:gap-10 justify-center md:justify-start md:items-start items-center mt-10">
         <div className="md:w-[790px] w-[360px] flex md:justify-start justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-[100%]">
-            {filteredPackages.map((pkg, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-10 w-full">
+            {packages.slice(0, visibleCount).map((pkg, idx) => (
               <div
                 key={pkg.id}
                 onClick={() => {
@@ -145,6 +92,7 @@ function ShowRegionPkg({ slug }) {
                     : "hover:shadow-lg"
                 }`}
               >
+                {/* Days / Validity */}
                 <div className="flex items-center gap-2 mb-2 text-sm">
                   <Image
                     width={16}
@@ -155,6 +103,7 @@ function ShowRegionPkg({ slug }) {
                   {pkg.package_validity} {pkg.package_validity_unit}
                 </div>
 
+                {/* Minutes */}
                 <div className="flex items-center gap-2 text-sm my-2">
                   <Image
                     width={16}
@@ -165,6 +114,7 @@ function ShowRegionPkg({ slug }) {
                   {pkg.minutes ? `${pkg.minutes} Minutes` : "Unlimited Minutes"}
                 </div>
 
+                {/* SMS */}
                 <div className="flex items-center gap-2 text-sm my-2">
                   <Image
                     width={16}
@@ -175,7 +125,8 @@ function ShowRegionPkg({ slug }) {
                   {pkg.sms ? `${pkg.sms} SMS` : "Unlimited SMS"}
                 </div>
 
-                <div className="flex items-center gap-1 text-sm mt-2">
+                {/* Countries */}
+                <div className="flex items-center gap-1 text-sm mt-2 flex-wrap">
                   <Image
                     width={18}
                     height={18}
@@ -198,10 +149,12 @@ function ShowRegionPkg({ slug }) {
                   )}
                 </div>
 
+                {/* Connectivity */}
                 <div className="text-green-900 bg-green-200 w-fit px-2 py-0.5 rounded-[10px] text-xs font-medium mt-3">
                   {pkg.connectivity} Available
                 </div>
 
+                {/* Footer */}
                 <div className="flex justify-between items-center mt-4">
                   <button
                     onClick={(e) => {
@@ -223,16 +176,25 @@ function ShowRegionPkg({ slug }) {
           </div>
         </div>
 
-        {/* ✅ Checkout Card */}
+        {/* Checkout Card */}
         <div>
-          <CheckoutCard
-            country={region?.local_name || ""}
-            plan={selectedPlan}
-          />
+          <CheckoutCard country="Global" plan={selectedPlan} />
         </div>
       </div>
+
+      {/* Load More Button */}
+      {visibleCount < packages.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 9)}
+            className="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
-export default ShowRegionPkg;
+export default ShowGlobalPkg;

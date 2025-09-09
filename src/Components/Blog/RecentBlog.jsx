@@ -1,5 +1,6 @@
 "use client";
 
+import { useGuest } from "@/Context/GuestContext";
 import { LoaderLink } from "@/Context/LoaderLink";
 import { useFetch } from "@/Hooks/useFetch";
 import Image from "next/image";
@@ -9,18 +10,21 @@ import Skeleton from "react-loading-skeleton";
 const BASE_URL = "https://platform.defymobile.com/";
 
 function RecentBlog() {
-  const { data, isLoading, isError } = useFetch("get", "/blog");
+  const { blogsData, blogsLoading, blogsError } = useGuest();
+
   const [activeTab, setActiveTab] = useState("All");
 
-  const blogs = data?.blogs?.data ?? [];
-  const categories = data?.categories ?? [];
+  const blogs = blogsData?.blogs?.data ?? [];
+  console.log(blogsData);
+
+  const categories = blogsData?.categories ?? [];
 
   const filteredBlogs = useMemo(() => {
     if (activeTab === "All") return blogs;
     return blogs.filter((blog) => blog.category.name === activeTab);
   }, [blogs, activeTab]);
 
-  if (isLoading) {
+  if (blogsLoading) {
     return (
       <div className="mb-10">
         <h1 className="lato-text md:text-[27px] text-[20px] text-left md:pb-10 pb-5">
@@ -51,7 +55,7 @@ function RecentBlog() {
     );
   }
 
-  if (isError) {
+  if (blogsError) {
     return <p className="text-center text-red-500">Failed to load blogs.</p>;
   }
 

@@ -2,7 +2,6 @@
 
 import { createContext, useContext } from "react";
 import { useFetch } from "@/Hooks/useFetch";
-import { data } from "autoprefixer";
 
 const GuestContext = createContext();
 
@@ -20,9 +19,16 @@ export const GuestProvider = ({ children }) => {
   );
 
   // Global Packages
-  const { data: globalPkg, isLoading: globalPkgLoading } = useFetch(
+  const {
+    data: globalPackages,
+    isLoading: isGlobalPackages,
+    isError: isGlobalPackagesError,
+  } = useFetch("get", "/packages/global");
+
+  // Settings
+  const { data: allSetting, isLoading: allSettingsLoading } = useFetch(
     "get",
-    "/packages/global"
+    "/settings"
   );
 
   // Blogs
@@ -32,12 +38,12 @@ export const GuestProvider = ({ children }) => {
     isError: blogsError,
   } = useFetch("get", "/blog");
 
+  // Dynamic fetch hooks
   const useCountryBySlug = (slug) =>
     useFetch("get", `/packages/country/${slug}`);
 
   const useRegionBySlug = (slug) => useFetch("get", `/packages/region/${slug}`);
 
-  const useGlobalPackages = () => useFetch("get", `/packages/global`);
 
   return (
     <GuestContext.Provider
@@ -51,8 +57,13 @@ export const GuestProvider = ({ children }) => {
         regionsLoading,
 
         // Global
-        globalPkg,
-        globalPkgLoading,
+        globalPackages,
+        isGlobalPackages,
+        isGlobalPackagesError,
+
+        // Settings
+        allSetting,
+        allSettingsLoading,
 
         // Blogs
         blogsData,
@@ -62,7 +73,6 @@ export const GuestProvider = ({ children }) => {
         // Dynamic Fetch
         useCountryBySlug,
         useRegionBySlug,
-        useGlobalPackages,
       }}
     >
       {children}

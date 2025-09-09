@@ -1,15 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
 import { apiClient } from "@/lib/apiClient";
+import Cookies from "js-cookie";
 
 export function useMutationRequest(method, url, options = {}) {
   return useMutation({
     mutationFn: async (payload) => {
       const lowerMethod = method.toLowerCase();
-      const token = localStorage.getItem("auth_token");
+      const token = Cookies.get("auth_token");
 
       const config = {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: token ? `Bearer ${token}` : undefined,
         },
       };
 
@@ -30,7 +31,6 @@ export function useMutationRequest(method, url, options = {}) {
 
       const data = response.data;
 
-      // 🔥 Treat backend `status: false` as an error
       if (data && data.status === false) {
         throw new Error(data.message || "Request failed");
       }

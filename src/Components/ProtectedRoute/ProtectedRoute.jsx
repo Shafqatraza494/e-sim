@@ -2,17 +2,18 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import Cookies from "js-cookie";
 export default function ProtectedRoute({ children, guestOnly = false }) {
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("auth_token");
+    const token = Cookies.get("auth_token");
 
+    
     if (guestOnly) {
       if (token) {
-        router.replace("/"); 
+        router.replace("/");
       } else {
         setAuthorized(true);
       }

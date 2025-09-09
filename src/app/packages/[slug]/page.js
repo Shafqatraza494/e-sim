@@ -18,7 +18,6 @@ function Page({ params }) {
   const { data, isLoading, isError } = useRegionBySlug(slug);
 
   const isRegion = data?.region;
-  console.log("isRegion", isRegion);
 
   return (
     <div>
