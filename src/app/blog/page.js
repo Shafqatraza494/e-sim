@@ -4,14 +4,17 @@ import AllPosts from "@/Components/Blog/AllPosts";
 import RecentBlog from "@/Components/Blog/RecentBlog";
 import Hero from "@/Components/Hero/Hero";
 import Faq from "@/Components/Home/FAQSection/Faq";
+import { useGuest } from "@/Context/GuestContext";
 import { useFetch } from "@/Hooks/useFetch";
 import { useMutationRequest } from "@/Hooks/useMutationRequest";
 import React from "react";
 
-function page() {
-  const { data, isLoading, isError } = useFetch("get", "/blog");
 
-  console.log(data);
+
+
+function page() {
+
+
 
   return (
     <>

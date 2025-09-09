@@ -9,7 +9,7 @@ export default function Providers({ children }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <CartProvider>{children}</CartProvider>
+      {children}
     </QueryClientProvider>
   );
 }

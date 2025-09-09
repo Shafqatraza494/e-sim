@@ -1,39 +1,45 @@
+import { useGuest } from "@/Context/GuestContext";
+import { LoaderLink } from "@/Context/LoaderLink";
 import Image from "next/image";
 
 export default function Footer() {
+  // const { allSetting, allSettingsLoading } = useGuest();
+
+  // console.log(allSetting);
+
   return (
     <footer className="bg-[#EB662B] text-white rounded-t-4xl ">
       <div className="max-w-7xl mx-14 py-6 flex md:flex-row flex-col gap-5 items-center md:justify-between justify-center">
         <div className="flex flex-row gap-2">
-          <Image width={29} height={29} src="/logo-white.png" alt="" />{" "}
+          <Image width={29} height={29} src="/logo-white.png" alt="" />
           <p className="text-xl font-semibold">eSIM White Label</p>
         </div>
         <nav className="flex md:flex-row flex-col gap-6 text-sm font-medium text-center">
-          <a href="#">Contact Us</a>
-          <a href="#">FAQ</a>
-          <a href="#">Blog</a>
-          <a href="#">Affiliate Program</a>
-          <a href="#">Help Center</a>
+          <LoaderLink href="/contact">Contact Us</LoaderLink>
+          <LoaderLink href="/faq">FAQ</LoaderLink>
+          <LoaderLink href="/blog">Blog</LoaderLink>
+          <LoaderLink href="/affiliate">Affiliate Program</LoaderLink>
+          <LoaderLink href="/help-center">Help Center</LoaderLink>
         </nav>
         <div className="flex gap-3">
-          <a
-            href="#"
+          <LoaderLink
+            href="https://facebook.com"
             className="bg-white text-[#F15A24] rounded-full hover:scale-105 transition h-7 p-1"
           >
             <i className="fab fa-facebook-f"></i>
-          </a>
-          <a
-            href="#"
+          </LoaderLink>
+          <LoaderLink
+            href="https://linkedin.com"
             className="bg-white text-[#F15A24] h-7 p-1 rounded-full hover:scale-105 transition"
           >
             <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a
-            href="#"
+          </LoaderLink>
+          <LoaderLink
+            href="https://instagram.com"
             className="bg-white text-[#F15A24] h-7 p-1 rounded-full hover:scale-105 transition"
           >
             <i className="fab fa-instagram"></i>
-          </a>
+          </LoaderLink>
         </div>
       </div>
 
@@ -55,7 +61,13 @@ export default function Footer() {
                   "India",
                 ].map((item) => (
                   <li key={item}>
-                    <a href="#">{item}</a>
+                    <LoaderLink
+                      href={`/packages/${item
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                    >
+                      {item}
+                    </LoaderLink>
                   </li>
                 ))}
               </ul>
@@ -65,19 +77,23 @@ export default function Footer() {
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#">General Terms and Conditions</a>
+                  <LoaderLink href="/terms-conditions">
+                    General Terms and Conditions
+                  </LoaderLink>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <LoaderLink href="/privacy-policy">Privacy Policy</LoaderLink>
                 </li>
                 <li>
-                  <a href="#">Refund Policy</a>
+                  <LoaderLink href="/refund-policy">Refund Policy</LoaderLink>
                 </li>
                 <li>
-                  <a href="#">Cookies Law</a>
+                  <LoaderLink href="/cookies-law">Cookies Law</LoaderLink>
                 </li>
                 <li>
-                  <a href="#">Open Internet Statement</a>
+                  <LoaderLink href="/open-internet-statement">
+                    Open Internet Statement
+                  </LoaderLink>
                 </li>
               </ul>
             </div>
@@ -86,16 +102,16 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Download the App</h3>
             <div className="flex gap-4 mb-6">
-              <a href="#">
+              <LoaderLink href="https://play.google.com">
                 <img
                   src="/google-play.png"
                   alt="Google Play"
                   className="h-12"
                 />
-              </a>
-              <a href="#">
+              </LoaderLink>
+              <LoaderLink href="https://apps.apple.com">
                 <img src="/app-store.png" alt="App Store" className="h-12" />
-              </a>
+              </LoaderLink>
             </div>
             <h4 className="font-semibold text-lg">
               Join Our <span className="text-[#F15A24]">Newsletter</span>
@@ -125,21 +141,21 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
           <p>© 2025 eSIM White Label. All Rights Reserved</p>
           <div className="flex gap-2">
-            <a href="#">
+            <LoaderLink href="#">
               <img src="/amex.png" alt="Amex" className="h-5" />
-            </a>
-            <a href="#">
+            </LoaderLink>
+            <LoaderLink href="#">
               <img src="/apple-pay.png" alt="Apple Pay" className="h-5" />
-            </a>
-            <a href="#">
+            </LoaderLink>
+            <LoaderLink href="#">
               <img src="/gpay.png" alt="Google Pay" className="h-5" />
-            </a>
-            <a href="#">
+            </LoaderLink>
+            <LoaderLink href="#">
               <img src="/mastercard.png" alt="Mastercard" className="h-5" />
-            </a>
-            <a href="#">
+            </LoaderLink>
+            <LoaderLink href="#">
               <img src="/visa.png" alt="Visa" className="h-5" />
-            </a>
+            </LoaderLink>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function DummyCartButton() {
     addToCart({
       title: "Test Product",
       price: 19.99,
-      id: Date.now(), // Unique ID
+      id: Date.now()
     });
     toggleCart();
   };

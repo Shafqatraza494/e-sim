@@ -1,26 +1,35 @@
 "use client";
 
+import { useGuest } from "@/Context/GuestContext";
+import { LoaderLink } from "@/Context/LoaderLink";
 import { useFetch } from "@/Hooks/useFetch";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
 
-const BASE_URL = "https://platform.defymobile.com";
+const BASE_URL = "https://platform.defymobile.com/";
 
 function RecentBlog() {
-  const { data, isLoading, isError } = useFetch("get", "/blog");
+  const { blogsData, blogsLoading, blogsError } = useGuest();
 
-  const [activeTab, setActiveTab] = useState("Technology");
+  const [activeTab, setActiveTab] = useState("All");
 
-  const blogs = data?.blogs?.data ?? [];
+  const blogs = blogsData?.blogs?.data ?? [];
+  console.log(blogsData);
 
-  if (isLoading) {
+  const categories = blogsData?.categories ?? [];
+
+  const filteredBlogs = useMemo(() => {
+    if (activeTab === "All") return blogs;
+    return blogs.filter((blog) => blog.category.name === activeTab);
+  }, [blogs, activeTab]);
+
+  if (blogsLoading) {
     return (
       <div className="mb-10">
         <h1 className="lato-text md:text-[27px] text-[20px] text-left md:pb-10 pb-5">
           Recent blog posts
         </h1>
-
         <div className="flex md:flex-row flex-col gap-10">
           <div className="flex flex-col gap-6 md:w-[500px]">
             <Skeleton height={300} borderRadius={12} />
@@ -46,58 +55,77 @@ function RecentBlog() {
     );
   }
 
-  if (isError) {
+  if (blogsError) {
     return <p className="text-center text-red-500">Failed to load blogs.</p>;
   }
 
   return (
     <>
-      <div className="md:my-10 my-4 flex justify-center items-center w-[100%] ">
-        <ul className="hidden md:flex flex-row items-center mt-10 text-[22px] align-middle">
-          {["Technology", "Iphone", "News", "Teams"].map((tab, index) => (
+      <div className="md:my-10 my-4 flex justify-center items-center w-[100%]">
+        <ul className="hidden md:flex flex-row items-center mt-10 text-[22px] align-middle gap-6">
+          <li
+            className={`cursor-pointer ${
+              activeTab === "All"
+                ? "border-b-2 border-[#EB662B] text-[#EB662B] font-[700]"
+                : "text-black font-[400]"
+            }`}
+            onClick={() => setActiveTab("All")}
+          >
+            All
+          </li>
+          {categories.map((tab) => (
             <li
-              key={index}
-              onClick={() => setActiveTab(tab)}
-              className={`cursor-pointer border-b-3 ${
-                activeTab === tab
-                  ? "w-[150px] border-[#EB662B] text-[#EB662B] font-[700]"
-                  : "w-[150px] text-black font-[400]"
+              key={tab.id}
+              onClick={() => setActiveTab(tab.name)}
+              className={`cursor-pointer ${
+                activeTab === tab.name
+                  ? "border-b-2 border-[#EB662B] text-[#EB662B] font-[700]"
+                  : "text-black font-[400]"
               }`}
             >
-              {tab}
+              {tab.name}
             </li>
           ))}
         </ul>
       </div>
 
+      {/* Blogs */}
       <div className="mb-10">
         <h1 className="lato-text md:text-[27px] text-[20px] text-left md:pb-10 pb-5">
           Recent blog posts
         </h1>
+
         <div className="flex md:flex-row flex-col gap-10">
-          {blogs.length > 0 && (
+          {filteredBlogs.length > 0 && (
             <div className="flex flex-col gap-10 md:w-[500px] text-left">
               <Image
                 width={600}
                 height={300}
-                src={`${BASE_URL}${blogs[0].image}`}
-                alt={blogs[0].name}
+                src={`${BASE_URL}${filteredBlogs[0].image}`}
+                alt={filteredBlogs[0].name}
               />
               <div className="flex flex-col gap-4">
                 <p className="lato-text text-[15px] text-[#EB662B]">
-                  {blogs[0].author_name} •{" "}
-                  {new Date(blogs[0].created_at).toLocaleDateString("en-US", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
+                  {filteredBlogs[0].author_name} •{" "}
+                  {new Date(filteredBlogs[0].created_at).toLocaleDateString(
+                    "en-US",
+                    {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    }
+                  )}
                 </p>
-                <div className="flex flex-row justify-between">
-                  <button>
-                    <h1 className="lato-text md:text-[27px] text-[20px]">
-                      {blogs[0].name}
+
+                <div className="flex flex-row justify-between items-center">
+                  {/* ✅ Title wrapped with LoaderLink */}
+                  <LoaderLink
+                    href={`/blog/details-page/${filteredBlogs[0].slug}`}
+                  >
+                    <h1 className="lato-text md:text-[27px] text-[20px] md:text-left text-center cursor-pointer">
+                      {filteredBlogs[0].name}
                     </h1>
-                  </button>
+                  </LoaderLink>
                   <Image
                     width={27}
                     height={27}
@@ -105,15 +133,17 @@ function RecentBlog() {
                     alt="arrow"
                   />
                 </div>
+
                 <p className="lato-text md:text-[18px] text-[#667085]">
-                  {blogs[0].sub_content}
+                  {filteredBlogs[0].sub_content}
                 </p>
               </div>
             </div>
           )}
 
+          {/* Side blogs */}
           <div className="md:w-[600px] flex flex-col gap-10">
-            {blogs.slice(1).map((blog) => (
+            {filteredBlogs.slice(1, 3).map((blog) => (
               <div key={blog.id} className="flex md:flex-row flex-col gap-5">
                 <Image
                   className="md:w-[350px] w-[100%]"
@@ -131,11 +161,14 @@ function RecentBlog() {
                       year: "numeric",
                     })}
                   </p>
-                  <button>
-                    <h1 className="lato-text text-[20px] text-left">
+
+                  {/* ✅ Title wrapped with LoaderLink */}
+                  <LoaderLink href={`/blog/details-page/${blog.slug}`}>
+                    <h1 className="lato-text text-[20px] text-left cursor-pointer">
                       {blog.name}
                     </h1>
-                  </button>
+                  </LoaderLink>
+
                   <p className="lato-text md:text-[18px] text-left text-[#667085]">
                     {blog.sub_content}
                   </p>
