@@ -12,7 +12,7 @@ export function CartProvider({ children }) {
   const { checkoutSummary, isCheckoutSummaryLoading, checkoutSummaryError } =
     useAuth();
 
-  console.log("cartItems from CartContext 👉", cartItems);
+  
 
   // ✅ Add or update plan in cart (max 5 per item)
   const addToCart = (plan, quantity = 1) => {

@@ -16,6 +16,8 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { user, isAuthenticated, isLoading, logout } = useAuth();
+  console.log("shafqat",user);
+  
   const { toggleCart } = useCart();
 
   const languages = [
@@ -33,7 +35,7 @@ function Header() {
       {/* Logo */}
       <div className="flex items-center gap-2">
         <LoaderLink href="/">
-          <Image src="/logo.png" alt="Logo" width={29} height={29} />
+          <Image src="/Logo.png" alt="Logo" width={29} height={29} />
         </LoaderLink>
         <p className="hidden md:block font-semibold">eSIM White Label</p>
       </div>
@@ -58,7 +60,7 @@ function Header() {
         <div className="hidden md:flex flex-row justify-center items-center gap-[12px] ml-8">
           {/* Cart */}
           <button onClick={toggleCart} className={styles.cartBtn}>
-            <Image src="/Vector.png" alt="Cart" width={18} height={18} />
+            <Image src="/vector.png" alt="Cart" width={18} height={18} />
           </button>
 
           {/* Auth State */}
@@ -73,7 +75,7 @@ function Header() {
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="px-4 py-2 border flex flex-row items-center gap-2 border-black rounded-[20px] bg-white text-black font-medium hover:bg-gray-100"
               >
-                <span>{user?.name || "Account"}</span>
+                <span>{user?.data.name || "Account"}</span>
                 {menuOpen ? (
                   <ChevronDown size={16} className="text-gray-600" />
                 ) : (
@@ -123,12 +125,12 @@ function Header() {
           ) : (
             <>
               <LoaderLink href="/signup">
-                <button className="cursor-pointer border px-4 py-2 rounded-md bg-white hover:bg-gray-100">
+                <button className="cursor-pointer border-[#000000] w-[120px] h-[44px] px-4 py-2 rounded-[200px] border-[1px] bg-white hover:bg-gray-100">
                   Register
                 </button>
               </LoaderLink>
               <LoaderLink href="/login">
-                <button className="cursor-pointer border px-4 py-2 rounded-md bg-white hover:bg-gray-100">
+                <button className="cursor-pointer w-[83.31px] h-[44px] rounded-[200px] border px-4 py-2 bg-[#EB662B] text-[#FFFFFF] ">
                   Login
                 </button>
               </LoaderLink>
@@ -138,16 +140,24 @@ function Header() {
           {/* Language Selector */}
           <div className="relative">
             <button
-              className="bg-white rounded-full w-10 h-10 flex flex-row justify-center items-center border"
+              className="bg-white rounded-[200px] w-[63px] border-[1px] h-[44px]  flex flex-row justify-center items-center "
               onClick={() => setLangOpen(!langOpen)}
             >
               <Image
                 src="/united states.png"
                 alt="lang"
-                width={20}
-                height={20}
+                width={27}
+                height={26}
               />
-              <span className="text-sm ml-1">▼</span>
+              <span>
+                <Image
+                  className="ml-2 w-[15px] h-[44px] rounded-[200px]  border-[#000000]"
+                  src="/CaretDown.svg"
+                  alt=""
+                  width={12}
+                  height={10}
+                />
+              </span>
             </button>
 
             {langOpen && (
