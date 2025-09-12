@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-[#EB662B] text-white rounded-t-4xl ">
       <div className="max-w-7xl mx-14 py-6 flex md:flex-row flex-col gap-5 items-center md:justify-between justify-center">
         <div className="flex flex-row gap-2">
-          <Image width={29} height={29} src="/logo-white.png" alt="" />
+          <Image width={29} height={29} src="/Logo-white.png" alt="" />
           <p className="text-xl font-semibold">eSIM White Label</p>
         </div>
         <nav className="flex md:flex-row flex-col gap-6 text-sm font-medium text-center">
