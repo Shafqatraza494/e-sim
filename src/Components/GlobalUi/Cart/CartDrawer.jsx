@@ -1,6 +1,6 @@
 "use client";
 import { useCart } from "@/Context/CartContext";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Trash2 } from "lucide-react";
@@ -33,6 +33,10 @@ export default function CartDrawer() {
       price: localItem.price || 0,
     };
   });
+
+  useEffect(() => {
+    console.log({ displayItems });
+  }, [isCartOpen]);
 
   const subtotal = summaryData.total_amount || 0;
   const discount = summaryData.discount || 0;
@@ -93,9 +97,12 @@ export default function CartDrawer() {
                   />
                   <div className="text-sm">
                     <p className="font-semibold">{item.title}</p>
-                    <p className="text-orange-600 text-xs">Data: {item.data}</p>
                     <p className="text-orange-600 text-xs">
-                      Duration: {item.duration}
+                      Data: {`${item.data_quantity} ${item.data_unit}`}
+                    </p>
+                    <p className="text-orange-600 text-xs">
+                      Duration:{" "}
+                      {`${item.package_validity} ${item.package_validity_unit}s`}
                     </p>
 
                     <div className="flex items-center mt-1">
@@ -156,7 +163,10 @@ export default function CartDrawer() {
             </div>
 
             <LoaderLink href={"/checkout"}>
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-md font-medium">
+              <button
+                onClick={() => closeCart()}
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-md font-medium"
+              >
                 Checkout ${total.toFixed(2)}
               </button>
             </LoaderLink>
